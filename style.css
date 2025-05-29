@@ -1,0 +1,80 @@
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #0f172a; /* Deep navy */
+  color: #e2e8f0; /* Light slate */
+}
+header {
+  background: #1e293b; /* Dark slate */
+  color: #f8fafc; /* Near white */
+  padding: 2rem;
+  text-align: center;
+}
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #38bdf8; /* Sky blue */
+}
+header p {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  color: #cbd5e1; /* Muted gray-blue */
+}
+nav {
+  background: #334155; /* Darker slate */
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 0;
+}
+nav a {
+  color: #7dd3fc; /* Lighter sky */
+  text-decoration: none;
+  font-weight: bold;
+}
+section {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+}
+.card {
+  background: #1e293b;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  margin-bottom: 2rem;
+  color: #f1f5f9;
+}
+footer {
+  background: #0f172a;
+  color: #94a3b8;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+input, textarea {
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #475569;
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+button {
+  padding: 0.75rem;
+  background-color: #38bdf8;
+  color: #0f172a;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+button:hover {
+  background-color: #0ea5e9;
+}
