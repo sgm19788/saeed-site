@@ -1,39 +1,53 @@
-<div class="maintenance-mode">
-  <h1>🚧 الموقع تحت الصيانة 🚧</h1>
-  <p>نعتذر عن الإزعاج، نحن نقوم حالياً بتحديث وتحسين تجربة المستخدم. يرجى العودة لاحقاً.</p>
+<div class="executive-leader">
+  <h1>سعيد غصاب الهاجري</h1>
+  <p>الرئيس الأعلى للمجلس التنفيذي</p>
 </div>
 
 <style>
-  body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #f0f0f0, #d0e1f9);
-    animation: gradientShift 10s infinite alternate;
-  }
-
-  .maintenance-mode {
+  .executive-leader {
     text-align: center;
-    padding: 2rem;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    margin-top: 100px;
+    animation: fadeInUp 2s ease-out;
   }
 
-  .maintenance-mode h1 {
-    font-size: 2rem;
-    color: #d32f2f;
+  .executive-leader h1 {
+    font-size: 2.8rem;
+    color: #f1c40f;
+    text-shadow: 0 0 20px #f1c40f, 0 0 40px #d4ac0d;
+    animation: glow 3s infinite alternate;
   }
 
-  @keyframes gradientShift {
+  .executive-leader p {
+    font-size: 1.2rem;
+    color: #ffffffcc;
+    text-shadow: 0 0 10px #ffffff88;
+    margin-top: 10px;
+  }
+
+  @keyframes fadeInUp {
     0% {
-      background: linear-gradient(135deg, #f0f0f0, #d0e1f9);
+      opacity: 0;
+      transform: translateY(30px);
     }
     100% {
-      background: linear-gradient(135deg, #d0e1f9, #f0f0f0);
+      opacity: 1;
+      transform: translateY(0);
     }
   }
+
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 10px #f1c40f, 0 0 20px #d4ac0d;
+    }
+    to {
+      text-shadow: 0 0 25px #f1c40f, 0 0 50px #d4ac0d;
+    }
+  }
+
+  body {
+    background: linear-gradient(to right, #1c1c1c, #111);
+    font-family: 'Cairo', sans-serif;
+  }
 </style>
+
+  
