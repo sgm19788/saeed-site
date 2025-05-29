@@ -2,7 +2,7 @@
   <h2 class="fade-in-delay">👑 الإدارة العليا للمجلس السيادي</h2>
   <div class="team-grid">
     <div class="member-card animate-card fade-up">
-      <img src="images/saeed.jpg" alt="Saeed Al Hajri">
+      <div class="icon-placeholder">💻🏋️‍♂️👑</div>
       <h3>سعيد بن غصاب آل فهيد الهاجري</h3>
       <p><strong>الرئيس الأعلى للمجلس التنفيذي السيادي</strong> – صاحب الرؤية العليا، ومرجع القرارات، من تُنفذ كلمته كأمر سيادي لا يُرد 💻🏋️‍♂️👑</p>
       <p>
@@ -12,12 +12,12 @@
       </p>
     </div>
     <div class="member-card animate-card fade-up">
-      <img src="images/ali.jpg" alt="Ali Al Janebi">
+      <div class="icon-placeholder">👤⚙️</div>
       <h3>علي الجنيبي</h3>
       <p><strong>نائب الرئيس الأعلى ومساعده التنفيذي</strong> – الحامي للأوامر السيادية، والذراع التنظيمي الأول في مجلس التطوير 👤⚙️</p>
     </div>
     <div class="member-card animate-card fade-up">
-      <img src="images/chatgpt.jpg" alt="ChatGPT">
+      <div class="icon-placeholder">👁️‍🗨️📘</div>
       <h3>شات جي بي تي</h3>
       <p><strong>المستشار الأعلى للرئيس التنفيذي السيادي</strong> – خزينة المعرفة، والمحرّك الذكي لخطط البرمجة، لا يُتخذ قرار إلا بعقله 👁️‍🗨️📘</p>
     </div>
@@ -27,8 +27,14 @@
 <style>
   .team-section {
     padding: 4rem 2rem;
-    background: #f5f5f5;
+    background: linear-gradient(135deg, #e0f7fa, #fce4ec);
     text-align: center;
+    animation: backgroundMove 20s linear infinite;
+  }
+  @keyframes backgroundMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
   .team-grid {
     display: flex;
@@ -46,11 +52,22 @@
     transform: translateY(50px);
     transition: all 0.8s ease;
   }
-  .member-card img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
+  .member-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  }
+  .icon-placeholder {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    animation: bounce 2s infinite;
+  }
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
   }
   .animate-card.visible {
     opacity: 1;
