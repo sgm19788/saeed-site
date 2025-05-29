@@ -1,103 +1,47 @@
-<div class="executive-leader">
-  <h1>سعيد غصاب الهاجري</h1>
-  <p>الرئيس الأعلى للمجلس التنفيذي</p>
-</div>
 
-<style>
-  .executive-leader {
-    text-align: center;
-    margin-top: 100px;
-    animation: fadeInUp 2s ease-out;
-  }
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مجلس النخبة الرقمية - بإدارة سعيد الهاجري</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <h1 class="logo">💼 مجلس النخبة</h1>
+        <p class="subtitle">بإدارة الرئيس الأعلى: <strong>سعيد غصاب الهاجري</strong></p>
+    </header>
 
-  .executive-leader h1 {
-    font-size: 2.8rem;
-    color: #f1c40f;
-    text-shadow: 0 0 20px #f1c40f, 0 0 40px #d4ac0d;
-    animation: glow 3s infinite alternate;
-  }
+    <main>
+        <section class="section">
+            <h2>من نحن</h2>
+            <p>مجلس النخبة الرقمية، بقيادة سعيد الهاجري، هو منصة تجمع بين القوة الرقمية، والاحتراف في البرمجة، وروح التحدي في رفع الأثقال. هدفنا التميز والتعليم والإلهام.</p>
+        </section>
 
-  .executive-leader p {
-    font-size: 1.2rem;
-    color: #ffffffcc;
-    text-shadow: 0 0 10px #ffffff88;
-    margin-top: 10px;
-  }
+        <section class="section">
+            <h2>قوانين رياضة رفع الأثقال</h2>
+            <ul>
+                <li>الالتزام بالوزن المحدد.</li>
+                <li>رفع نظيف وموزون.</li>
+                <li>تجنب الرميات الخطيرة أو غير القانونية.</li>
+            </ul>
+        </section>
 
-  @keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+        <section class="section">
+            <h2>مقال تعليمي: مقدمة في البرمجة</h2>
+            <p>البرمجة هي فن توجيه الحاسوب لأداء مهام عبر تعليمات مكتوبة بلغة يفهمها، مثل Python. تبدأ بكتابة أكواد بسيطة تتطور لتطبيقات ومواقع كاملة.</p>
+        </section>
+    </main>
 
-  @keyframes glow {
-    from {
-      text-shadow: 0 0 10px #f1c40f, 0 0 20px #d4ac0d;
-    }
-    to {
-      text-shadow: 0 0 25px #f1c40f, 0 0 50px #d4ac0d;
-    }
-  }
+    <footer class="footer">
+        <p>تابعنا على: 
+            <a href="https://instagram.com/sgalhajri" target="_blank">إنستغرام</a> | 
+            <a href="https://github.com/" target="_blank">GitHub</a> | 
+            <a href="https://snapchat.com" target="_blank">سناب شات</a>
+        </p>
+    </footer>
 
-  body {
-    background: linear-gradient(to right, #1c1c1c, #111);
-    font-family: 'Cairo', sans-serif;
-  }
-</style>
-<div class="intro-section">
-  <h1 class="intro-title">مجلس النخبة الرقمية</h1>
-  <p class="intro-subtitle">حيث تلتقي القوة البرمجية بالهيبة القيادية</p>
-</div>
-
-<style>
-  .intro-section {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: white;
-    animation: fadeIn 3s ease-out forwards;
-  }
-
-  .intro-title {
-    font-size: 3.5rem;
-    font-weight: bold;
-    text-shadow: 0 0 25px #00fff2;
-    opacity: 0;
-    animation: slideIn 2s ease forwards 1s;
-  }
-
-  .intro-subtitle {
-    font-size: 1.5rem;
-    margin-top: 15px;
-    color: #ffffffcc;
-    text-shadow: 0 0 10px #00fff2aa;
-    opacity: 0;
-    animation: slideIn 2s ease forwards 2s;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  @keyframes slideIn {
-    from {
-      transform: translateY(50px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-</style>
-
-  
+    <script src="script.js"></script>
+</body>
+</html>
