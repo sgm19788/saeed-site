@@ -1,4 +1,49 @@
-<h1 style="text-align:center; font-size:28px; animation: fadeInUp 1.5s ease-out;">🔱 بسم الرئاسة العليا، وبأمر السياديّ الكبير سعيد بن غصاب آل فهيد الهاجري، نُعلن انطلاق المعرض الرسمي برؤية تقنية ورياضية موحّدة، تحت شعار <span style='color:#0077cc; font-weight:bold;'>Code × Iron</span> 🖥️🏋️‍♂️</h1>
+<section id="hero" class="hero-section">
+  <div class="hero-content">
+    <h1>سعيد بن غصاب آل فهيد الهاجري</h1>
+    <p>رئيس أعلى للمجلس التنفيذي السيادي – ريّاضي من الطراز الأول 🏋️‍♂️ ومبرمج بخبرة عالية 💻، جمعت بين الحديد والكود، وبين الهيبة والمعرفة.</p>
+    <a href="#gallery" class="hero-btn">شوف المعرض</a>
+  </div>
+</section>
+.hero-section {
+  background: linear-gradient(120deg, #000000, #111111);
+  color: white;
+  padding: 6rem 2rem;
+  text-align: center;
+}
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-btn {
+  background: #cc9900;
+  color: black;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+.hero-btn:hover {
+  background: #e6b800;
+}
+.hero-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-in-out;
+}
+.hero-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
     
 
