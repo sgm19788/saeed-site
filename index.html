@@ -1,80 +1,39 @@
-<div class="announcement-bar">
-  🚨 بتوجيه من <strong>الرئيس الأعلى للمجلس التنفيذي السيادي</strong>، نعلن فتح بوابة المعرفة والتطوير الرقمي للجميع! 🚨
+<div class="maintenance-mode">
+  <h1>🚧 الموقع تحت الصيانة 🚧</h1>
+  <p>نعتذر عن الإزعاج، نحن نقوم حالياً بتحديث وتحسين تجربة المستخدم. يرجى العودة لاحقاً.</p>
 </div>
 
-<section id="team" class="team-section fade-slide-in">
-  <h2 class="fade-in-delay">👑 الإدارة العليا للمجلس السيادي</h2>
-  <div class="team-grid">
-    <div class="member-card animate-card fade-up">
-      <div class="icon-placeholder">💻🏋️‍♂️👑</div>
-      <h3>سعيد بن غصاب آل فهيد الهاجري</h3>
-      <p><strong>الرئيس الأعلى للمجلس التنفيذي السيادي</strong> – صاحب الرؤية العليا، ومرجع القرارات، من تُنفذ كلمته كأمر سيادي لا يُرد 💻🏋️‍♂️👑</p>
-      <p>
-        <a href="https://instagram.com/sgalhajri" target="_blank">Instagram</a> |
-        <a href="https://snapchat.com/add/blllllllbl" target="_blank">Snapchat</a> |
-        <a href="https://github.com/sgalhajri" target="_blank">GitHub</a>
-      </p>
-    </div>
-    <div class="member-card animate-card fade-up">
-      <div class="icon-placeholder">👤⚙️</div>
-      <h3>علي الجنيبي</h3>
-      <p><strong>نائب الرئيس الأعلى ومساعده التنفيذي</strong> – الحامي للأوامر السيادية، والذراع التنظيمي الأول في مجلس التطوير 👤⚙️</p>
-    </div>
-    <div class="member-card animate-card fade-up">
-      <div class="icon-placeholder">👁️‍🗨️📘</div>
-      <h3>شات جي بي تي</h3>
-      <p><strong>المستشار الأعلى للرئيس التنفيذي السيادي</strong> – خزينة المعرفة، والمحرّك الذكي لخطط البرمجة، لا يُتخذ قرار إلا بعقله 👁️‍🗨️📘</p>
-    </div>
-  </div>
-</section>
-
-<section id="faq" class="faq-section fade-slide-in">
-  <h2 class="fade-in-delay">📚 الأسئلة التعليمية الشائعة</h2>
-  <div class="faq-item animate-card fade-up">
-    <h3>ما هي لغة البرمجة التي تنصح بها للمبتدئين؟</h3>
-    <p>لغة Python من أفضل الخيارات للمبتدئين لسهولة قراءتها واستخدامها في مجالات كثيرة مثل الذكاء الاصطناعي وتطوير المواقع.</p>
-  </div>
-  <div class="faq-item animate-card fade-up">
-    <h3>كيف أبدأ تعلم البرمجة؟</h3>
-    <p>ابدأ بتعلم الأساسيات عبر دورات مجانية على الإنترنت، ثم قم بتطبيق ما تعلمته في مشاريع بسيطة.</p>
-  </div>
-  <div class="faq-item animate-card fade-up">
-    <h3>هل أحتاج إلى كمبيوتر قوي لتعلم البرمجة؟</h3>
-    <p>ليس بالضرورة. معظم الدروس والبرامج التعليمية تعمل على أجهزة متوسطة المواصفات.</p>
-  </div>
-</section>
-
 <style>
-  .faq-section {
-    padding: 4rem 2rem;
-    background: linear-gradient(135deg, #f3e5f5, #e8f5e9);
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #f0f0f0, #d0e1f9);
+    animation: gradientShift 10s infinite alternate;
+  }
+
+  .maintenance-mode {
     text-align: center;
-    animation: backgroundMove 20s linear infinite;
+    padding: 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   }
-  .faq-item {
-    background: #fff;
-    margin: 1rem auto;
-    max-width: 700px;
-    padding: 1.5rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    text-align: left;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease;
+
+  .maintenance-mode h1 {
+    font-size: 2rem;
+    color: #d32f2f;
   }
-  .faq-item h3 {
-    color: #6a1b9a;
-    margin-bottom: 0.5rem;
-  }
-  .faq-item.visible {
-    opacity: 1;
-    transform: translateY(0);
+
+  @keyframes gradientShift {
+    0% {
+      background: linear-gradient(135deg, #f0f0f0, #d0e1f9);
+    }
+    100% {
+      background: linear-gradient(135deg, #d0e1f9, #f0f0f0);
+    }
   }
 </style>
-
-<script>
-  document.querySelectorAll('.faq-item').forEach(item => {
-    observer.observe(item);
-  });
-</script>
