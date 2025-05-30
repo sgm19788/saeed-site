@@ -1,3 +1,161 @@
+import { motion } from "framer-motion";
+import { Instagram, Snapchat, ArrowUp } from "lucide-react";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+
+export default function HeroSection() {
+  const [isMuted, setIsMuted] = useState(false);
+
+  useEffect(() => {
+    const audio = new Audio("/entry-music.mp3");
+    audio.loop = true;
+    audio.volume = 0.5;
+    if (!isMuted) {
+      audio.play();
+    }
+    return () => audio.pause();
+  }, [isMuted]);
+
+  const playClickSound = () => {
+    const click = new Audio("/click.mp3");
+    click.volume = 0.3;
+    click.play();
+  };
+
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  };
+
+  return (
+    <div className="bg-black text-white scroll-smooth">
+      <button
+        onClick={() => setIsMuted(!isMuted)}
+        className="fixed top-4 right-4 z-50 bg-white text-black px-4 py-2 rounded-xl shadow-md hover:bg-gray-200"
+      >
+        {isMuted ? "تشغيل الصوت" : "كتم الصوت"}
+      </button>
+
+      {/* زر نشر */}
+      <div className="fixed bottom-6 left-6 z-50">
+        <button
+          onClick={() => {
+            playClickSound();
+            alert("تم إرسال طلب النشر! ✅ (رمزي فقط)");
+          }}
+          className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full shadow-lg transition"
+        >
+          🚀 نشر التعديلات
+        </button>
+      </div>
+
+      {/* دخول فخم وترحيب */}
+      <motion.section
+        className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-black text-center"
+        initial="hidden"
+        animate="visible"
+        variants={sectionVariants}
+      >
+        <div>
+          <h1 className="text-4xl md:text-6xl font-bold mb-4">مرحباً بكم في موقع سعيد الهاجري</h1>
+          <p className="text-xl md:text-2xl font-light text-gray-300">تحت إشراف المجلس النخبة للتقني</p>
+        </div>
+      </motion.section>
+
+      {/* القسم 1: من هو سعيد الهاجري؟ */}
+      <motion.section className="py-20 px-6 bg-gray-950" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionVariants}>
+        <h2 className="text-3xl font-bold mb-6">👑 من هو سعيد الهاجري؟</h2>
+        <p className="text-lg text-gray-300 max-w-3xl mx-auto">سعيد بن غصاب آل فهيد الهاجري، لاعب رفع أثقال إماراتي في نادي أبوظبي لرفع الأثقال، وعضو في فئة 81 كجم. شارك في بطولة العرب في قطر، وتمكن من رفع 70 كجم، ليُثبت نفسه أمام الجميع.</p>
+      </motion.section>
+
+      {/* القسم 2: قصة البداية */}
+      <motion.section className="py-20 px-6 bg-black" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionVariants}>
+        <h2 className="text-3xl font-bold mb-6">🔥 البداية</h2>
+        <p className="text-lg text-gray-300 max-w-3xl mx-auto">بدأت رحلتي في رفع الأثقال عندما لاحظت شغفي بالرياضة، وبدعم من النادي، بدأت أطور من نفسي وأتنافس محلياً وعربياً، حتى أصبحت من بين المتميزين في فئتي.</p>
+      </motion.section>
+
+      {/* القسم 3: القوانين التعليمية */}
+      <motion.section className="py-20 px-6 bg-gray-900" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionVariants}>
+        <h2 className="text-3xl font-bold mb-6">📚 قوانين رياضة رفع الأثقال</h2>
+        <ul className="text-lg text-gray-300 list-disc list-inside max-w-3xl mx-auto text-right">
+          <li>يُمنع رفع الوزن قبل إشارة الحكم.</li>
+          <li>اللاعب لديه 3 محاولات في الخطف و3 في النتر.</li>
+          <li>يجب ثبات الجسم والذراعين في أعلى الحركة.</li>
+        </ul>
+      </motion.section>
+
+      {/* القسم 4: ركن البرمجة */}
+      <motion.section className="py-20 px-6 bg-black" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionVariants}>
+        <h2 className="text-3xl font-bold mb-6">💻 ركن البرمجة</h2>
+        <p className="text-lg text-gray-300 max-w-3xl mx-auto">في هذا الركن أشارك مقالات تعليمية مبسطة في البرمجة، مثل كيفية إنشاء صفحة شخصية بلغة HTML وCSS، وطريقة استخدام React لبناء مواقع تفاعلية.</p>
+      </motion.section>
+
+      {/* القسم 5: معرض الصور */}
+      <motion.section id="gallery" className="py-20 px-6 bg-gray-950 text-white text-center" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionVariants}>
+        <h2 className="text-3xl font-bold mb-10">📸 معرض الصور</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {[1, 2, 3, 4, 5, 6].map((num) => (
+            <motion.div
+              key={num}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="rounded-xl overflow-hidden shadow-lg"
+            >
+              <Image
+                src={`/gallery/img${num}.jpg`}
+                alt={`صورة ${num}`}
+                width={400}
+                height={300}
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
+
+      {/* القسم 6: قسم الأخبار */}
+      <motion.section className="py-20 px-6 bg-black text-white text-center" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionVariants}>
+        <h2 className="text-3xl font-bold mb-6">📰 آخر الأخبار والروابط</h2>
+        <div className="text-lg text-gray-300">
+          <p className="mb-2">موقع نادي أبوظبي لرفع الأثقال: <a href="https://adweightlifting.ae" className="underline text-blue-400" target="_blank">adweightlifting.ae</a></p>
+          <p>موقع مجلس أبوظبي الرياضي: <a href="https://adsc.ae" className="underline text-blue-400" target="_blank">adsc.ae</a></p>
+        </div>
+      </motion.section>
+
+      {/* القسم 7: روابط التواصل الاجتماعي */}
+      <motion.section className="py-20 bg-gray-900 text-white text-center" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionVariants}>
+        <h2 className="text-3xl font-bold mb-6">📱 تواصل معي</h2>
+        <div className="flex justify-center gap-6 text-white">
+          <a href="https://instagram.com/sgalhajri" target="_blank"><Instagram size={32} /></a>
+          <a href="https://snapchat.com/add/blllllllbl" target="_blank"><Snapchat size={32} /></a>
+        </div>
+      </motion.section>
+
+      {/* القسم 8: المكتب والإدارة */}
+      <motion.section className="py-20 bg-gray-800 text-white text-center" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionVariants}>
+        <h2 className="text-2xl md:text-3xl font-bold mb-4">📌 تحت إدارة</h2>
+        <p className="text-lg">الموقع تحت إدارة <strong>سعيد الهاجري</strong> - مؤسس الموقع</p>
+        <p className="text-lg">و <strong>أمين السبراني</strong> - مسؤول تقني ومطور الموقع</p>
+      </motion.section>
+
+      {/* القسم 9: تطوير المستقبل */}
+      <motion.section className="py-20 bg-black text-white text-center" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionVariants}>
+        <h2 className="text-3xl font-bold mb-6">🎓 تطوير المستقبل</h2>
+        <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+          طموحي لا يقتصر فقط على البطولات، بل يشمل بناء مشروع متكامل يخدم الجيل القادم من الرياضيين والمبرمجين. أطمح لتأسيس منصة تعليمية تجمع بين التدريب الرياضي والتقني، وتكون منارة لكل شاب طموح يسعى لتحقيق التميز.
+        </p>
+      </motion.section>
+
+      {/* أيقونة الرجوع للأعلى */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className="fixed bottom-6 right-6 z-50 bg-white text-black p-3 rounded-full shadow-xl hover:bg-gray-300 transition"
+      >
+        <ArrowUp />
+      </button>
+    </div>
+  );
+}
 
 
 
