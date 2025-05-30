@@ -1,206 +1,170 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <title>مكتب الرئيس - سعيد بطل ومبرمج</title>
+  <meta charset="UTF-8">
+  <title>المكتب التنفيذي لسعيد الهاجري</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600;700&display=swap');
 
     body {
-      margin: 0; padding: 0;
+      margin: 0;
       font-family: 'Cairo', sans-serif;
-      background: #f4f6f9;
+      background-color: #f4f6f9;
       color: #2c3e50;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 20px;
-      box-sizing: border-box;
     }
 
     header {
+      background: linear-gradient(to left, #1e3c72, #2a5298);
+      color: white;
       text-align: center;
-      margin-bottom: 40px;
+      padding: 70px 20px;
+      position: relative;
+      overflow: hidden;
     }
+
     header h1 {
-      font-weight: 700;
-      font-size: 2.6rem;
-      margin: 0;
-      color: #34495e;
+      font-size: 3.2rem;
+      margin-bottom: 10px;
+      animation: slideInDown 1.2s ease-out forwards;
     }
+
     header p {
-      font-weight: 600;
-      font-size: 1.2rem;
-      color: #7f8c8d;
-      margin-top: 8px;
+      font-size: 1.4rem;
+      color: #dfe6ec;
+      animation: fadeIn 2s ease-out forwards;
     }
 
-    .section {
-      max-width: 1000px;
-      width: 100%;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-      padding: 30px 35px;
-      margin-bottom: 50px;
-      text-align: right;
-      line-height: 1.7;
-      margin-top: 40px;
+    @keyframes slideInDown {
+      0% { opacity: 0; transform: translateY(-60px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
-    .section h2 {
-      font-weight: 700;
-      font-size: 1.9rem;
-      margin-bottom: 20px;
-      color: #2c3e50;
-      border-bottom: 2px solid #3498db;
-      padding-bottom: 10px;
-      letter-spacing: 1px;
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
     }
 
-    .section p {
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: #34495e;
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    .progress-bar {
-      width: 100%;
-      background: #ecf0f1;
-      border-radius: 25px;
-      height: 15px;
-      margin: 15px 0;
-    }
-    .progress-bar div {
-      height: 100%;
-      border-radius: 25px;
-      background: #3498db;
-      width: 0;
-      animation: loadProgress 3s ease-in-out forwards;
-    }
-
-    @keyframes loadProgress {
-      0% { width: 0; }
-      100% { width: 100%; }
-    }
-
-    .logos {
-      display: flex;
-      justify-content: center;
-      gap: 50px;
-      margin-top: 40px;
-    }
-    .logos a {
-      display: inline-block;
-      width: 120px;
-      height: auto;
+    section {
+      max-width: 920px;
+      margin: 50px auto;
+      padding: 35px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+      animation: fadeInUp 1s ease-out;
       transition: transform 0.3s ease;
     }
-    .logos a:hover {
-      transform: scale(1.1);
-    }
-    .logos img {
-      width: 100%;
-      height: auto;
-      filter: drop-shadow(0 2px 6px rgba(52,73,94,0.2));
+
+    section:hover {
+      transform: scale(1.01);
     }
 
-    .social-links {
-      display: flex;
-      gap: 25px;
-      justify-content: center;
+    section h2 {
+      font-size: 2.1rem;
+      margin-bottom: 20px;
+      border-bottom: 3px solid #2a5298;
+      padding-bottom: 12px;
+    }
+
+    section p {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: #2f3640;
+    }
+
+    .warning {
+      background-color: #fff5f5;
+      border: 2px dashed #e74c3c;
+      color: #c0392b;
+      padding: 22px;
+      border-radius: 12px;
+      margin-top: 50px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      animation: fadeInUp 1.5s ease-out;
+    }
+
+    .social, .external-links {
+      text-align: center;
       margin-top: 40px;
     }
-    .social-links a {
+
+    .social a, .external-links a {
+      display: inline-block;
+      margin: 10px;
       text-decoration: none;
-      color: #fff;
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 12px 25px;
-      border-radius: 30px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      color: #2a5298;
+      font-weight: bold;
+      font-size: 1.2rem;
+      transition: color 0.3s;
     }
-    .social-links a.snap {
-      background: #fffc00;
-      color: #111;
-    }
-    .social-links a.snap:hover {
-      background: #e6e600;
-      box-shadow: 0 4px 12px #e6e600;
-    }
-    .social-links a.insta {
-      background: #e1306c;
-      color: #fff;
-    }
-    .social-links a.insta:hover {
-      background: #b12a5b;
-      box-shadow: 0 4px 12px #b12a5b;
+
+    .social a:hover, .external-links a:hover {
+      color: #1e3c72;
     }
 
     footer {
-      margin-top: 70px;
-      color: #95a5a6;
-      font-size: 0.9rem;
-      letter-spacing: 0.15em;
       text-align: center;
+      color: #7f8c8d;
+      padding: 35px 10px;
+      font-size: 0.95rem;
+      background-color: #ecf0f1;
+      margin-top: 50px;
     }
-
   </style>
 </head>
 <body>
-
   <header>
-    <h1>سعيد بطل ومبرمج</h1>
-    <p>مكتب الرئيس الأعلى للأمن السيبراني وتطوير الموقع</p>
+    <h1>المكتب التنفيذي لسعيد الهاجري</h1>
+    <p>المؤسس والمدير العام | الرقابة السيبرانية والتطوير الرقمي</p>
   </header>
 
-  <!-- قسم الأخبار -->
-  <section class="section">
-    <h2>الأخبار</h2>
-    <p>سيتم إضافة الأخبار والتحديثات بشكل دوري هنا، مع كل ما هو جديد بشأن تطوير الموقع أو الأمن السيبراني.</p>
+  <section>
+    <h2>نبذة رسمية</h2>
+    <p>
+      المكتب التنفيذي لسعيد الهاجري يُعد الذراع الرسمي لقيادة وتطوير البنية الرقمية للموقع. نعمل باحترافية عالية وفق أحدث معايير التقنية، ونلتزم بجودة الأداء وحماية المنصة من أي تهديد رقمي.
+    </p>
   </section>
 
-  <!-- قسم التطوير والصيانة -->
-  <section class="section">
-    <h2>التطوير والصيانة</h2>
-    <p>نسعى لتطوير الموقع باستمرار من خلال تحديثات أمنية وتحسينات تقنية لضمان أفضل تجربة للمستخدم.</p>
-    <div class="progress-bar">
-      <div></div>
-    </div>
+  <section>
+    <h2>الرؤية</h2>
+    <p>
+      أن نكون مرجعاً رقمياً شاملاً وواجهة متميزة تعكس احترافية وجهود البطل والمبرمج سعيد الهاجري.
+    </p>
   </section>
 
-  <!-- قسم روابط النوادي والشعارات -->
-  <section class="section">
-    <h2>النوادي والشعارات</h2>
-    <div class="logos">
-      <a href="https://www.adwc.gov.ae/" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/ar/thumb/c/cd/ADWC_Logo.svg/2560px-ADWC_Logo.svg.png" alt="شعار نادي أبوظبي لرفع الأثقال" />
-      </a>
-      <a href="https://www.adsc.ae/" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/ar/thumb/4/4f/Abu_Dhabi_Sports_Council_logo.svg/1200px-Abu_Dhabi_Sports_Council_logo.svg.png" alt="شعار أبوظبي الرياضية" />
-      </a>
-    </div>
+  <section>
+    <h2>خطة العمل</h2>
+    <p>
+      نُحدث الأقسام بشكل دوري، ونُضيف المحتوى التعليمي والرياضي والتقني مع تحسينات مستمرة في الأداء والتصميم.
+    </p>
   </section>
 
-  <!-- قسم حسابات التواصل الاجتماعي -->
-  <section class="social-links">
-    <a href="https://www.snapchat.com/add/blllllllbl" target="_blank" class="snap">
-      سناب شات
-    </a>
-    <a href="https://instagram.com/sgalhajri" target="_blank" class="insta">
-      إنستغرام
-    </a>
+  <section class="warning">
+    ⚠️ إشعار رسمي: يُمنع منعاً باتاً المساس أو محاولة الإضرار بهذا الموقع. المنصة محمية بأنظمة متقدمة تراقب باستمرار، وأي محاولة اختراق أو إفساد ستُقابل بإجراءات صارمة من قبل الإدارة العليا. هذا الموقع خاضع لحماية مشددة ومُراقبة آنية لضمان الأمن الرقمي الكامل.
   </section>
+
+  <div class="social">
+    <h2>تابعني على المنصات</h2>
+    <a href="https://www.instagram.com/sgalhajri" target="_blank">إنستغرام</a>
+    <a href="https://www.snapchat.com/add/blllllllbl" target="_blank">سناب شات</a>
+  </div>
+
+  <div class="external-links">
+    <h2>روابط خارجية مفيدة</h2>
+    <a href="https://adweightlifting.ae" target="_blank">نادي أبوظبي لرفع الأثقال</a>
+    <a href="https://www.adsf.ae" target="_blank">مجلس أبوظبي الرياضي</a>
+  </div>
 
   <footer>
-    &copy; 2025 جميع الحقوق محفوظة - مكتب الرئيس الأعلى للأمن السيبراني
+    &copy; 2025 جميع الحقوق محفوظة - المكتب التنفيذي لسعيد الهاجري
   </footer>
-
 </body>
 </html>
+
+  
