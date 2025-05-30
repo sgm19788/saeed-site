@@ -1,47 +1,68 @@
+import { motion } from "framer-motion";
+import { Instagram, Snapchat, ArrowUp } from "lucide-react";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مجلس النخبة الرقمية - بإدارة سعيد الهاجري</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header class="navbar">
-        <h1 class="logo">💼 مجلس النخبة</h1>
-        <p class="subtitle">بإدارة الرئيس الأعلى: <strong>سعيد غصاب الهاجري</strong></p>
-    </header>
+export default function HeroSection() {
+  const [isMuted, setIsMuted] = useState(false);
 
-    <main>
-        <section class="section">
-            <h2>من نحن</h2>
-            <p>مجلس النخبة الرقمية، بقيادة سعيد الهاجري، هو منصة تجمع بين القوة الرقمية، والاحتراف في البرمجة، وروح التحدي في رفع الأثقال. هدفنا التميز والتعليم والإلهام.</p>
-        </section>
+  useEffect(() => {
+    const audio = new Audio("/entry-music.mp3");
+    audio.loop = true;
+    audio.volume = 0.5;
+    if (!isMuted) {
+      audio.play();
+    }
+    return () => audio.pause();
+  }, [isMuted]);
 
-        <section class="section">
-            <h2>قوانين رياضة رفع الأثقال</h2>
-            <ul>
-                <li>الالتزام بالوزن المحدد.</li>
-                <li>رفع نظيف وموزون.</li>
-                <li>تجنب الرميات الخطيرة أو غير القانونية.</li>
-            </ul>
-        </section>
+  const playClickSound = () => {
+    const click = new Audio("/click.mp3");
+    click.volume = 0.3;
+    click.play();
+  };
 
-        <section class="section">
-            <h2>مقال تعليمي: مقدمة في البرمجة</h2>
-            <p>البرمجة هي فن توجيه الحاسوب لأداء مهام عبر تعليمات مكتوبة بلغة يفهمها، مثل Python. تبدأ بكتابة أكواد بسيطة تتطور لتطبيقات ومواقع كاملة.</p>
-        </section>
-    </main>
+  return (
+    <div className="bg-black text-white scroll-smooth">
+      <button
+        onClick={() => setIsMuted(!isMuted)}
+        className="fixed top-4 right-4 z-50 bg-white text-black px-4 py-2 rounded-xl shadow-md hover:bg-gray-200"
+      >
+        {isMuted ? "تشغيل الصوت" : "كتم الصوت"}
+      </button>
 
-    <footer class="footer">
-        <p>تابعنا على: 
-            <a href="https://instagram.com/sgalhajri" target="_blank">إنستغرام</a> | 
-            <a href="https://github.com/" target="_blank">GitHub</a> | 
-            <a href="https://snapchat.com" target="_blank">سناب شات</a>
-        </p>
-    </footer>
+      {/* معرض الصور */}
+      <section id="gallery" className="py-20 px-6 bg-gray-950 text-white text-center">
+        <h2 className="text-3xl font-bold mb-10">📸 معرض الصور</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {[1, 2, 3, 4, 5, 6].map((num) => (
+            <motion.div
+              key={num}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="rounded-xl overflow-hidden shadow-lg"
+            >
+              <Image
+                src={`/gallery/img${num}.jpg`}
+                alt={`صورة ${num}`}
+                width={400}
+                height={300}
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
-    <script src="script.js"></script>
-</body>
-</html>
+      {/* ... باقي الأقسام ... */}
+
+      {/* أيقونة الرجوع للأعلى */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className="fixed bottom-6 right-6 z-50 bg-white text-black p-3 rounded-full shadow-xl hover:bg-gray-300 transition"
+      >
+        <ArrowUp />
+      </button>
+    </div>
+  );
+}
