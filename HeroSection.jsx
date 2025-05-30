@@ -67,3 +67,15 @@ export default function HeroSection() {
     </div>
   );
 }
+{/* زر نشر شكلي */}
+<div className="fixed bottom-6 left-6 z-50">
+  <button
+    onClick={() => {
+      playClickSound();
+      alert("تم إرسال طلب النشر! ✅ (رمزي فقط)");
+    }}
+    className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full shadow-lg transition"
+  >
+    🚀 نشر التعديلات
+  </button>
+</div>
