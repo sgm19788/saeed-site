@@ -2,61 +2,168 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <title>الموقع مغلق مؤقتًا</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SaeedTheBuilder – صانع الحديد والعقول</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap');
     body {
       margin: 0;
-      height: 100vh;
       font-family: 'Cairo', sans-serif;
-      background: linear-gradient(135deg, #d7e1ec, #f0f4f8);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #34495e;
+      background: #111;
+      color: #fff;
+      line-height: 1.8;
+    }
+
+    marquee {
+      background: #0f0;
+      color: #000;
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    header {
+      background: #000;
+      padding: 30px 20px;
       text-align: center;
-      padding: 20px;
+      border-bottom: 3px solid #0f0;
     }
-    .container {
-      background: white;
-      padding: 40px 60px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      max-width: 500px;
-      animation: fadeInUp 1s ease forwards;
+
+    header h1 {
+      margin: 0;
+      font-size: 36px;
+      color: #0f0;
     }
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 20px;
-      color: #2a5298;
+
+    header p {
+      font-size: 18px;
+      color: #ccc;
+      margin-top: 10px;
     }
-    p {
-      font-size: 1.2rem;
-      line-height: 1.7;
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
     }
-    .order {
-      margin-top: 25px;
-      font-weight: 700;
-      color: #e74c3c;
-      font-size: 1.1rem;
+
+    section h2 {
+      color: #0ff;
+      font-size: 28px;
+      border-right: 5px solid #0ff;
+      padding-right: 10px;
+      margin-bottom: 30px;
     }
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+
+    .image-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .image-grid img {
+      max-width: 300px;
+      border-radius: 8px;
+      border: 2px solid #0f0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #000;
+      color: #999;
+      font-size: 14px;
+    }
+
+    a {
+      color: #0ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 28px; }
+      section h2 { font-size: 22px; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>الموقع مغلق مؤقتًا</h1>
-    <p>الموقع مغلق مؤقتًا لأعمال الصيانة والتطوير بهدف تحسين تجربتكم. نقدر تفهمكم ونسعى للعودة بأفضل أداء.</p>
-    <p class="order">أمر من الرئيس الأعلى ومطور البرنامج: سعيد الهاجري.</p>
-  </div>
+
+  <marquee behavior="scroll" direction="right">
+    🟢 مرحبًا بكم في افتتاح معرض سعيد الثقافي – 🎉 تم افتتاح الموقع رسميًا بعد انتهاء الصيانة الشاملة – مرحبًا بك في حصن المعرفة والحديد 💪👨‍💻
+  </marquee>
+
+  <header>
+    <h1>SaeedTheBuilder</h1>
+    <p>صانع الحديد والعقول – الرئيس الأعلى للقوات الأمنية السيبرانية</p>
+  </header>
+
+  <section>
+    <h2>من أنا؟</h2>
+    <p>
+      أنا سعيد بن غصاب آل فهيد الهاجري، لاعب رفع أثقال في نادي أبوظبي، ومبرمج شغوف. رفعت 70 كجم في بطولة العرب، وأسست هذا الموقع ليكون حصنًا رقميًا مليئًا بالمحتوى، والقوة، والمعرفة.
+    </p>
+  </section>
+
+  <section>
+    <h2>المكتب البرمجي</h2>
+    <p>
+      هنا أكتب الشيفرات كما أرفع الحديد... بدقة، وتركيز، وقوة.  
+      قريبًا تجد مقالات تعليمية عن البرمجة، الأمن السيبراني، وتطوير المواقع.
+    </p>
+  </section>
+
+  <section>
+    <h2>قوانين رفع الأثقال</h2>
+    <p>
+      - الخطف (Snatch): رفع الوزن دفعة واحدة فوق الرأس.<br>
+      - النتر (Clean & Jerk): رفعتين – الأولى للكتفين، والثانية فوق الرأس.<br>
+      - لكل لاعب 3 محاولات. يتم احتساب الأفضل.
+    </p>
+  </section>
+
+  <section>
+    <h2>المعرض الرياضي</h2>
+    <div class="image-grid">
+      <img src="458EADC7-B8FF-459E-8CDC-CDD3F910780B.jpeg" alt="سعيد يرفع الحديد 1">
+      <img src="B2F7AF33-57AC-45A4-92AE-562821294839.jpeg" alt="سعيد يرفع الحديد 2">
+      <img src="790F6626-BC66-4766-BAA8-A9D4E0D8E068.jpeg" alt="سعيد يرفع الحديد 3">
+    </div>
+  </section>
+
+  <section>
+    <h2>معرض سعيد الثقافي</h2>
+    <p>
+      هذا القسم يعرض إبداعاتي في مجالات متعددة: التقنية، والرياضة، والفكر.  
+      يجمع بين البرمجة، والأمان السيبراني، ورفع الأثقال، والفنون الرقمية.  
+      هنا ستجد مستقبل الشباب الطموح 👨‍💻💪🧠
+    </p>
+  </section>
+
+  <section>
+    <h2>الأخبار</h2>
+    <p>
+      - بطولة العرب في قطر – رفع 70 كجم بنجاح 💥<br>
+      - الموقع الآن رسميًا متاح للجميع بعد الصيانة 🎉<br>
+      - تم افتتاح معرض سعيد الثقافي رسميًا 💫<br>
+      - تحديثات جديدة قادمة قريبًا! تابعونا.
+    </p>
+  </section>
+
+  <section>
+    <h2>تواصل معي</h2>
+    <p>
+      📷 إنستغرام: <a href="https://instagram.com/sgalhajri" target="_blank">@sgalhajri</a><br>
+      👻 سناب: <a href="#">blllllllbl</a>
+    </p>
+  </section>
+
+  <footer>
+    © 2025 SaeedTheBuilder – جميع الحقوق محفوظة.  
+    الموقع محمي تحت إشراف القوات الأمنية السيبرانية.
+  </footer>
+
 </body>
 </html>
