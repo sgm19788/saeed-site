@@ -3,13 +3,18 @@ import React from "react";
 export default function MaintenancePage() {
   return (
     <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-r from-gray-900 via-purple-900 to-indigo-900 text-white px-6">
+      {/* العنوان الرئيسي */}
       <h1 className="text-7xl font-extrabold mb-6 tracking-wide drop-shadow-lg">
         🚧 موقعنا تحت الصيانة 🚧
       </h1>
+
+      {/* رسالة الصيانة */}
       <p className="text-2xl max-w-xl text-center mb-8 leading-relaxed drop-shadow-md">
         نعمل بكل جد واجتهاد لنقدم لك تجربة أفضل قريبًا.<br />
         شكراً لصبرك وتفهمك، نحن نعيد بناء شيء عظيم <br />فابقَ على تواصل معنا!
       </p>
+
+      {/* بطاقة تعريف فخمة */}
       <div className="bg-white bg-opacity-10 rounded-lg p-6 shadow-lg max-w-md text-center">
         <h2 className="text-4xl font-semibold mb-4">سعيد الهاجري</h2>
         <p className="mb-2 font-light italic">
@@ -19,8 +24,13 @@ export default function MaintenancePage() {
           جميع الحقوق محفوظة © 2025
         </p>
       </div>
+
+      {/* الفوتر مع رابط تواصل */}
       <footer className="mt-12 text-gray-400 text-sm">
-        تواصل معنا عبر: <a href="mailto:your@email.com" className="underline hover:text-white">البريد الإلكتروني</a>
+        تواصل معنا عبر:{" "}
+        <a href="mailto:your@email.com" className="underline hover:text-white">
+          البريد الإلكتروني
+        </a>
       </footer>
     </div>
   );
