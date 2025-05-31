@@ -2,65 +2,148 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>موقع سعيد الهاجري | تحت الصيانة</title>
+  <title>الموقع الرسمي لـ سعيد الهاجري</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap');
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #111, #222);
-      color: white;
       font-family: 'Cairo', sans-serif;
+      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+      color: white;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+    header {
+      background-color: #FFD700;
+      color: #000;
+      padding: 40px 20px;
+      text-align: center;
+      animation: fadeInDown 2s ease-out;
+    }
+    header h1 { font-size: 2.8em; }
+    section {
+      padding: 40px 20px;
+      border-bottom: 1px solid #333;
+      animation: fadeInUp 2s ease-in-out;
+    }
+    h2 {
+      color: #FFD700;
+      font-size: 2em;
+    }
+    .highlight {
+      color: #ffaa00;
+      font-weight: bold;
+    }
+    .team {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .construction {
+      text-align: center;
+      margin-top: 40px;
+      animation: bounce 2s infinite;
+    }
+    .loader-bar {
+      width: 80%;
+      max-width: 400px;
+      height: 20px;
+      background: #444;
+      margin: 20px auto;
+      border-radius: 10px;
       overflow: hidden;
     }
-
-    h1 {
-      font-size: 3em;
-      color: #FFD700;
-      text-shadow: 0 0 20px #FFD700;
+    .loader-bar::before {
+      content: '';
+      display: block;
+      height: 100%;
+      width: 50%;
+      background: linear-gradient(to right, #FFD700, #ffaa00);
+      animation: loadMove 2s infinite linear;
     }
-
-    h2 {
-      font-size: 1.5em;
-      color: #ccc;
-      margin-top: 10px;
+    @keyframes loadMove {
+      0% { margin-left: -50%; }
+      100% { margin-left: 100%; }
     }
-
-    p {
-      margin-top: 20px;
-      font-size: 1.2em;
-      color: #aaa;
-      max-width: 600px;
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    footer {
+      background: #111;
+      padding: 30px 20px;
       text-align: center;
+      font-size: 0.9em;
     }
-
-    .glow {
-      animation: glow 2s infinite alternate;
+    .social a {
+      color: #FFD700;
+      margin: 0 10px;
+      text-decoration: none;
     }
-
-    @keyframes glow {
-      from {
-        text-shadow: 0 0 10px #FFD700;
-      }
-      to {
-        text-shadow: 0 0 30px #FFD700, 0 0 50px #FFA500;
-      }
-    }
+    .social a:hover { color: #fff; }
   </style>
 </head>
 <body>
 
-  <h1 class="glow">🚧 تم إغلاق الموقع مؤقتاً 🚧</h1>
-  <h2>بأمر من: <strong>سعيد الهاجري</strong></h2>
-  <h2>الرئيس الأعلى ومؤسس الموقع الفخري</h2>
-  <p>نقوم الآن بأعمال تطوير وصيانة كبرى استعدادًا لإطلاق الموقع بحلته العالمية الجديدة.  
-  نشكركم على صبركم وثقتكم.  
-  عودة قوية قريبًا بإذن الله 💥</p>
+<header>
+  <h1>🚧 الموقع تحت حماية الحارس الأعلى سعيد الهاجري 🚧</h1>
+  <p>الرئيس التنفيذي، رئيس الأمن السيبراني، ورئيس مجلس النخبة الرقمي</p>
+</header>
+
+<div class="construction">
+  <h2>⚙️ تجري حالياً الصيانة الكبرى وبناء الموقع من الصفر</h2>
+  <div class="loader-bar"></div>
+</div>
+
+<section>
+  <h2>من هو سعيد؟</h2>
+  <p>في قلب كل منظومة قوية، هناك قائد استثنائي يقودها بحكمة وجرأة. <span class="highlight">سعيد الهاجري</span> ليس مجرد اسم في عالم التقنية؛ بل هو الهيبة، النظام، والحامي الرقمي للموقع. بعد منافسة شرسة، فاز برئاسة الفريق الإداري لموقع "SaeedTheBuilder" بكل جدارة.</p>
+</section>
+
+<section>
+  <h2>عن الإدارة العليا</h2>
+  <p>يعمل سعيد بجانب نخبة من العقول الإدارية والتقنية ضمن مجلس النخبة الرقمي. الإدارة مقسمة إلى وحدات: الأمن السيبراني، العلاقات الاجتماعية، التفاعل الذكي، الترفيه، التعليم، والتطوير.</p>
+  <div class="team">
+    <p>🔒 إدارة الأمن السيبراني: بقيادة سعيد شخصياً</p>
+    <p>🧠 إدارة التطوير التقني</p>
+    <p>🗣️ إدارة العلاقات الاجتماعية والتفاعل</p>
+    <p>🎮 إدارة الترفيه والألعاب</p>
+    <p>📰 إدارة الأخبار والتحليلات</p>
+  </div>
+</section>
+
+<section>
+  <h2>رؤية الموقع</h2>
+  <p>هذا ليس موقعًا عاديًا، بل حياة رقمية متكاملة. مدينة إلكترونية مليئة بالحركة والتفاعل: دردشة مباشرة، ألعاب، تعليم، ترفيه، أخبار لحظية، محتوى تعليمي تقني وثقافي. كل هذا تحت إشراف مباشر من <span class="highlight">سعيد الهاجري</span>.</p>
+</section>
+
+<section>
+  <h2>حماس رسمي 💥</h2>
+  <p>نحن الآن في مرحلة بناء أسطورية لهذا المشروع. تحت رقابة أمنية مشددة، وبإشراف إداري محترف. القادم ليس مجرد موقع… بل تجربة، عالم، ومكان للارتقاء الرقمي. <strong>الموقع تحت حمايتي.</strong></p>
+</section>
+
+<section>
+  <h2>روابط الحسابات الرسمية</h2>
+  <div class="social">
+    <a href="https://instagram.com/sgalhajri" target="_blank">📸 إنستغرام</a>
+    <a href="https://snapchat.com/add/blllllllbl" target="_blank">👻 سناب شات</a>
+  </div>
+</section>
+
+<footer>
+  بإشراف: سعيد الهاجري | جميع الحقوق محفوظة © 2025
+</footer>
 
 </body>
 </html>
