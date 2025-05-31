@@ -1,145 +1,66 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <title>موقع سعيد الهاجري</title>
+  <meta charset="UTF-8">
+  <title>موقع سعيد الهاجري | تحت الصيانة</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f4f4;
-      color: #111;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    .dark-mode {
-      background-color: #121212;
-      color: #eee;
-    }
-
-    .ticker {
-      background-color: #111;
-      color: #fff;
-      padding: 10px 0;
+      padding: 0;
+      background: linear-gradient(135deg, #111, #222);
+      color: white;
+      font-family: 'Cairo', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       overflow: hidden;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      border-bottom: 2px solid #444;
     }
 
-    .ticker-text {
-      display: inline-block;
-      white-space: nowrap;
-      animation: scroll-left 20s linear infinite;
-      font-size: 1.1rem;
-      padding-right: 100%;
+    h1 {
+      font-size: 3em;
+      color: #FFD700;
+      text-shadow: 0 0 20px #FFD700;
     }
 
-    @keyframes scroll-left {
-      0% {
-        transform: translateX(100%);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
-    }
-
-    .toggle-btn {
-      position: fixed;
-      left: 10px;
-      top: 10px;
-      z-index: 1001;
-      padding: 8px 16px;
-      background-color: #333;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .section {
-      padding: 80px 20px 40px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    h1,
     h2 {
-      color: inherit;
-    }
-
-    .hero {
-      background: linear-gradient(to bottom right, #222, #444);
-      color: white;
-      padding: 100px 20px;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-    }
-
-    .section.dark {
-      background-color: #222;
-      color: white;
-    }
-
-    .footer {
-      background-color: #111;
+      font-size: 1.5em;
       color: #ccc;
-      padding: 20px;
+      margin-top: 10px;
+    }
+
+    p {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #aaa;
+      max-width: 600px;
       text-align: center;
+    }
+
+    .glow {
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #FFD700;
+      }
+      to {
+        text-shadow: 0 0 30px #FFD700, 0 0 50px #FFA500;
+      }
     }
   </style>
 </head>
 <body>
-  <button class="toggle-btn" onclick="toggleMode()">🌓 تبديل الوضع</button>
 
-  <div class="ticker">
-    <div class="ticker-text">
-      🔒 يتم تحديث هذا الموقع يوميًا بأمر من القيادة العليا لمجلس النخبة – سعادة الرئيس سعيد الهاجري.
-    </div>
-  </div>   <div class="hero">
-    <h1>سعيد الهاجري</h1>
-    <p>الرئيس الأعلى لمجلس النخبة الرقمية – مؤسس، مبرمج، ورياضي نخبة</p>
-  </div>
+  <h1 class="glow">🚧 تم إغلاق الموقع مؤقتاً 🚧</h1>
+  <h2>بأمر من: <strong>سعيد الهاجري</strong></h2>
+  <h2>الرئيس الأعلى ومؤسس الموقع الفخري</h2>
+  <p>نقوم الآن بأعمال تطوير وصيانة كبرى استعدادًا لإطلاق الموقع بحلته العالمية الجديدة.  
+  نشكركم على صبركم وثقتكم.  
+  عودة قوية قريبًا بإذن الله 💥</p>
 
-  <div class="section">
-    <h2>من هو سعيد الهاجري؟</h2>
-    <p>سعيد بن غصاب آل فهيد الهاجري هو لاعب رفع أثقال إماراتي، يزن 81 كجم، وطوله 170 سم. يتمتع بروح قيادية ويجمع بين القوة البدنية والذكاء التقني، ويُعرف بهيبته وتأثيره في العالم الرقمي والرياضي.</p>
-  </div>
-
-  <div class="section dark">
-    <h2>مجلس النخبة الرقمية</h2>
-    <p>تحت قيادة سعيد الهاجري، يُعد هذا المجلس نواة الحماية والتطوير الرقمي، ويشرف على إدارة الموقع بالكامل بأقصى درجات الحماية والخصوصية.</p>
-  </div>
-
-  <div class="section">
-    <h2>قسم تعليم البرمجة</h2>
-    <p>في هذا القسم، يشارك سعيد الهاجري شغفه بالبرمجة، ويقدم شروحات مبسطة للغات مثل Python، HTML، CSS، JavaScript وغيرها للمبتدئين والطموحين في هذا المجال.</p>
-  </div>   <div class="section dark">
-    <h2>قوانين رياضة رفع الأثقال</h2>
-    <p>يتبع الموقع القوانين الرسمية للاتحاد الدولي لرفع الأثقال، ويتضمن شروحات لحركات مثل الخطف والنتر، وملاحظات عن السلامة والتقنية.</p>
-  </div>
-
-  <div class="section">
-    <h2>الهيئة الإدارية</h2>
-    <p>يترأس الموقع سعادة الرئيس سعيد الهاجري، ويدير فريق النخبة بخطط استراتيجية لضمان تجربة مثالية لكل الزوار.</p>
-  </div>
-
-  <div class="footer">
-    جميع الحقوق محفوظة © 2025 – سعادة الرئيس سعيد الهاجري
-  </div>   <script>
-    function toggleMode() {
-      document.body.classList.toggle('dark-mode');
-    }
-  </script>
 </body>
 </html>
