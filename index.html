@@ -2,148 +2,224 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>الموقع الرسمي لـ سعيد الهاجري</title>
+  <title>SaeedTheBuilder - تحت الصيانة</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap');
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      padding: 0;
       font-family: 'Cairo', sans-serif;
-      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+      background: linear-gradient(to bottom, #1a1a1a, #000000);
       color: white;
-      line-height: 1.8;
-      overflow-x: hidden;
     }
     header {
-      background-color: #FFD700;
-      color: #000;
-      padding: 40px 20px;
+      background-color: #000;
+      color: #FFD700;
+      padding: 30px;
       text-align: center;
-      animation: fadeInDown 2s ease-out;
     }
-    header h1 { font-size: 2.8em; }
+    .ticker {
+      background: #FFD700;
+      color: #000;
+      font-weight: bold;
+      padding: 12px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll 14s linear infinite;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-100%); }
+    }
     section {
       padding: 40px 20px;
       border-bottom: 1px solid #333;
-      animation: fadeInUp 2s ease-in-out;
     }
     h2 {
       color: #FFD700;
-      font-size: 2em;
+      font-size: 1.5em;
     }
-    .highlight {
-      color: #ffaa00;
+    p {
+      font-size: 1.1em;
+      color: #ddd;
+    }
+    .login-box {
+      background: rgba(255,255,255,0.08);
+      padding: 20px;
+      margin: 30px auto;
+      max-width: 320px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #FFD700;
+      text-align: center;
+    }
+    input[type="password"] {
+      width: 90%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border: none;
+      text-align: center;
+    }
+    button {
+      background: #FFD700;
+      color: #000;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
       font-weight: bold;
     }
-    .team {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 20px;
-    }
-    .construction {
-      text-align: center;
-      margin-top: 40px;
-      animation: bounce 2s infinite;
-    }
-    .loader-bar {
-      width: 80%;
-      max-width: 400px;
-      height: 20px;
-      background: #444;
-      margin: 20px auto;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    .loader-bar::before {
-      content: '';
-      display: block;
-      height: 100%;
-      width: 50%;
-      background: linear-gradient(to right, #FFD700, #ffaa00);
-      animation: loadMove 2s infinite linear;
-    }
-    @keyframes loadMove {
-      0% { margin-left: -50%; }
-      100% { margin-left: 100%; }
-    }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+    .error {
+      color: #ff4444;
+      font-size: 0.9em;
+      display: none;
     }
     footer {
       background: #111;
-      padding: 30px 20px;
+      padding: 20px;
       text-align: center;
       font-size: 0.9em;
+      color: #aaa;
     }
-    .social a {
+    #adminPanel {
+      display: none;
+      padding: 40px 20px;
+      background: #111;
+      text-align: center;
+    }
+    .panel {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    .btn {
+      background: #FFD700;
+      color: #000;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      width: 220px;
+      transition: all 0.3s;
+    }
+    .btn:hover {
+      background: #fff200;
+    }
+    .counter {
+      margin-top: 20px;
+      color: #0f0;
+      font-weight: bold;
+    }
+    .back-btn {
+      margin-top: 30px;
+      background: none;
       color: #FFD700;
-      margin: 0 10px;
-      text-decoration: none;
+      border: 1px solid #FFD700;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
     }
-    .social a:hover { color: #fff; }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>🚧 الموقع تحت حماية الحارس الأعلى سعيد الهاجري 🚧</h1>
-  <p>الرئيس التنفيذي، رئيس الأمن السيبراني، ورئيس مجلس النخبة الرقمي</p>
-</header>
+<!-- الموقع العادي -->
+<div id="mainSite">
+  <header>
+    <h1>🔧 SaeedTheBuilder</h1>
+    <p style="font-size: 0.9em; color: #ccc;">بإشراف الرئيس الأعلى سعيد الهاجري - الأمن السيبراني</p>
+  </header>
 
-<div class="construction">
-  <h2>⚙️ تجري حالياً الصيانة الكبرى وبناء الموقع من الصفر</h2>
-  <div class="loader-bar"></div>
+  <div class="ticker">
+    <span>🚧 الموقع تحت الصيانة الكبرى بإشراف مجلس النخبة الرقمي برئاسة سعيد الهاجري 💻</span>
+  </div>
+
+  <section>
+    <h2>عن الموقع</h2>
+    <p>منصة إماراتية متطورة تجمع بين التعليم، الذكاء الاصطناعي، الترفيه، الألعاب، والدردشة الآمنة. بإشراف تقني مباشر من الرئيس الأعلى سعيد الهاجري.</p>
+  </section>
+
+  <section>
+    <h2>مرحلة البناء</h2>
+    <p>يتم تطوير مدينة رقمية آمنة بإدارة نخبة مختارة وتحديثات يومية تشمل الأقسام التعليمية، الترفيهية، والدردشات.</p>
+  </section>
+
+  <section>
+    <h2>الدخول السري للإدارة</h2>
+    <div class="login-box">
+      <input type="password" id="adminPass" placeholder="كلمة المرور">
+      <button onclick="checkPassword()">دخول</button>
+      <div class="error" id="errorBox">🚫 كلمة المرور غير صحيحة</div>
+    </div>
+  </section>
+
+  <footer>
+    جميع الحقوق محفوظة © 2025 | SaeedTheBuilder
+  </footer>
 </div>
 
-<section>
-  <h2>من هو سعيد؟</h2>
-  <p>في قلب كل منظومة قوية، هناك قائد استثنائي يقودها بحكمة وجرأة. <span class="highlight">سعيد الهاجري</span> ليس مجرد اسم في عالم التقنية؛ بل هو الهيبة، النظام، والحامي الرقمي للموقع. بعد منافسة شرسة، فاز برئاسة الفريق الإداري لموقع "SaeedTheBuilder" بكل جدارة.</p>
-</section>
+<!-- لوحة التحكم -->
+<div id="adminPanel">
+  <h1>🛡️ لوحة تحكم الرئيس الأعلى</h1>
+  <p>الرئيس سعيد الهاجري كان أونلاين قبل قليل... تم الدخول إلى النظام.</p>
 
-<section>
-  <h2>عن الإدارة العليا</h2>
-  <p>يعمل سعيد بجانب نخبة من العقول الإدارية والتقنية ضمن مجلس النخبة الرقمي. الإدارة مقسمة إلى وحدات: الأمن السيبراني، العلاقات الاجتماعية، التفاعل الذكي، الترفيه، التعليم، والتطوير.</p>
-  <div class="team">
-    <p>🔒 إدارة الأمن السيبراني: بقيادة سعيد شخصياً</p>
-    <p>🧠 إدارة التطوير التقني</p>
-    <p>🗣️ إدارة العلاقات الاجتماعية والتفاعل</p>
-    <p>🎮 إدارة الترفيه والألعاب</p>
-    <p>📰 إدارة الأخبار والتحليلات</p>
+  <div class="panel">
+    <button class="btn" onclick="showAlert('✅ تم تفعيل نظام الحماية بنجاح!')">🔒 تفعيل نظام الحماية</button>
+    <button class="btn" onclick="showAlert('🚨 تم إرسال التنبيه إلى الإداريين الآن!')">📣 إرسال إعلان فوري</button>
+    <button class="btn">🕵️‍♂️ مراقبة الزوار</button>
+    <button class="btn">💬 فتح الدردشة</button>
+    <button class="btn">📂 إدارة الملفات</button>
+    <button class="btn">🎮 فتح مركز الألعاب</button>
   </div>
-</section>
 
-<section>
-  <h2>رؤية الموقع</h2>
-  <p>هذا ليس موقعًا عاديًا، بل حياة رقمية متكاملة. مدينة إلكترونية مليئة بالحركة والتفاعل: دردشة مباشرة، ألعاب، تعليم، ترفيه، أخبار لحظية، محتوى تعليمي تقني وثقافي. كل هذا تحت إشراف مباشر من <span class="highlight">سعيد الهاجري</span>.</p>
-</section>
+  <div class="counter" id="visitCount"></div>
+  <button class="back-btn" onclick="goBack()">🔙 الرجوع للموقع</button>
+</div>
 
-<section>
-  <h2>حماس رسمي 💥</h2>
-  <p>نحن الآن في مرحلة بناء أسطورية لهذا المشروع. تحت رقابة أمنية مشددة، وبإشراف إداري محترف. القادم ليس مجرد موقع… بل تجربة، عالم، ومكان للارتقاء الرقمي. <strong>الموقع تحت حمايتي.</strong></p>
-</section>
+<script>
+  function checkPassword() {
+    const pass = document.getElementById("adminPass").value;
+    const error = document.getElementById("errorBox");
 
-<section>
-  <h2>روابط الحسابات الرسمية</h2>
-  <div class="social">
-    <a href="https://instagram.com/sgalhajri" target="_blank">📸 إنستغرام</a>
-    <a href="https://snapchat.com/add/blllllllbl" target="_blank">👻 سناب شات</a>
-  </div>
-</section>
+    if (pass === "Saeed2025") {
+      let count = localStorage.getItem("secretVisits") || 0;
+      count++;
+      localStorage.setItem("secretVisits", count);
+      document.getElementById("mainSite").style.display = "none";
+      document.getElementById("adminPanel").style.display = "block";
+      document.getElementById("visitCount").textContent = "📌 عدد زياراتك للمكتب السري: " + count;
+    } else {
+      error.style.display = "block";
+    }
+  }
 
-<footer>
-  بإشراف: سعيد الهاجري | جميع الحقوق محفوظة © 2025
-</footer>
+  function goBack() {
+    document.getElementById("adminPanel").style.display = "none";
+    document.getElementById("mainSite").style.display = "block";
+  }
+
+  function showAlert(message) {
+    const alert = document.createElement("div");
+    alert.textContent = message;
+    alert.style.background = "#222";
+    alert.style.color = "#FFD700";
+    alert.style.border = "1px solid #FFD700";
+    alert.style.padding = "10px";
+    alert.style.marginTop = "15px";
+    alert.style.borderRadius = "10px";
+    alert.style.fontWeight = "bold";
+    document.querySelector(".panel").appendChild(alert);
+    setTimeout(() => alert.remove(), 4000);
+  }
+</script>
 
 </body>
 </html>
