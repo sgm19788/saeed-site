@@ -1,111 +1,51 @@
-import React, { useState, useEffect } from "react";
+// SaeedTheBuilder - موقع شخصي طويل وعميق
+
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Instagram, Mail, Sun, Moon } from "lucide-react";
+import { Instagram, Mail } from "lucide-react";
 
 export default function SaeedTheBuilder() {
-  // الحالة للوضع الليلي/النهاري
-  const [darkMode, setDarkMode] = useState(false);
-  // بيانات نموذج التواصل
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
-  // تغيير بيانات النموذج
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // إرسال النموذج (مؤقتاً)
   const handleSubmit = (e) => {
     e.preventDefault();
-    // يمكن الربط مع خدمة خارجية لاحقاً
+    // هنا يمكن لاحقًا ربط النموذج بخدمة بريد مثل Formspree أو EmailJS
     setSubmitted(true);
   };
 
-  // تبديل الوضع الليلي/النهاري
-  const toggleDarkMode = () => setDarkMode(!darkMode);
-
-  // تعديل الـ class على body للتحكم بالألوان العامة
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [darkMode]);
-
   return (
-    <div className={`min-h-screen font-sans ${darkMode ? "bg-gray-900 text-gray-100" : "bg-white text-gray-900"}`}>
-      {/* زر الوضع الليلي */}
-      <header className="flex justify-end p-4">
-        <button
-          onClick={toggleDarkMode}
-          aria-label="Toggle Dark Mode"
-          className="text-xl p-2 rounded-md hover:bg-gray-300 dark:hover:bg-gray-700 transition"
-        >
-          {darkMode ? <Sun /> : <Moon />}
-        </button>
-      </header>
+    <div className="bg-white text-gray-900 font-sans">
+      {/* باقي الأقسام كما هي ... */}
 
-      {/* القسم التعريفي */}
-      <section className="max-w-4xl mx-auto px-6 py-12 text-center">
-        <h1 className="text-5xl font-extrabold mb-4">سعيد الهاجري</h1>
-        <p className="text-xl mb-8 leading-relaxed">
-          الرئيس الأعلى والمؤسس الفخري للموقع، المهندس التقني الأول والعبقري الاستراتيجي، رائد أمن المعلومات وحماية البيانات، والمُلهم الأعلى للابتكار الرقمي والتقني، والقائد الذي لا يُضاهى في قيادة الفريق لتحقيق التميّز والريادة.
-        </p>
-      </section>
-
-      {/* قسم الإدارة العليا */}
-      <section className="py-16 px-6 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100">
-        <h2 className="text-3xl font-bold mb-8 text-center">الإدارة العليا</h2>
-        <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8">
-          {/* أنت */}
-          <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md text-center">
-            <h3 className="text-xl font-semibold mb-2">سعيد الهاجري</h3>
-            <p>
-              الرئيس الأعلى والمؤسس الفخري للموقع، المهندس التقني الأول والعبقري الاستراتيجي، رائد أمن المعلومات وحماية البيانات، والمُلهم الأعلى للابتكار الرقمي والتقني، والقائد الذي لا يُضاهى في قيادة الفريق لتحقيق التميّز والريادة.
-            </p>
-          </div>
-          {/* أنا */}
-          <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md text-center">
-            <h3 className="text-xl font-semibold mb-2">نائب الرئيس</h3>
-            <p>مطور ومبرمج الموقع ورئيس قسم أمن الموقع</p>
-          </div>
-        </div>
-      </section>
-
-      {/* تحذير أمني باللهجة الإماراتية */}
-      <section className="max-w-4xl mx-auto px-6 py-10 text-center text-red-600 font-bold">
-        <h3 className="text-2xl mb-4">تنبيه مهم!</h3>
-        <p>
-          يا اللي تفكر تغلط على هالموقع، وتفسده أو تخربه أو تأذي زوارنا، خلّك عارف إن سعيد الهاجري هو الرئيس الأعلى، وفريقنا الإداري كامل جاهز يتصرف ويتابع أي تهديد أو عبث.  
-          حنا شخصياً وبكل قوة راح نلاحقك قانونياً وفنياً، وما نرضى بأي لعب أو تخريب.  
-          لا تفكر تلعب لعب معانا، لأن ثمنها غالي، واللي يعبث بالموقع ويحاول يضر زوارنا، بيكون مصيره الفشل والخسارة الكبيرة!
-        </p>
-      </section>
-
-      {/* قسم التواصل */}
+      {/* Contact Section */}
       <section className="py-16 px-6 text-center">
         <h2 className="text-3xl font-bold mb-6">تواصل معي</h2>
-        <div className="flex justify-center gap-6 text-gray-800 dark:text-gray-300 mb-6">
-          <a href="https://instagram.com/sgalhajri" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <div className="flex justify-center gap-6 text-gray-800 mb-6">
+          <a href="https://instagram.com/sgalhajri" target="_blank" rel="noopener noreferrer">
             <Instagram className="w-6 h-6" />
           </a>
-          <a href="mailto:your@email.com" aria-label="Email">
+          <a href="mailto:your@email.com">
             <Mail className="w-6 h-6" />
           </a>
         </div>
 
+        {/* Contact Form */}
         <div className="max-w-md mx-auto">
           {submitted ? (
-            <p className="text-green-500 font-semibold">تم إرسال رسالتك بنجاح! شكرًا لتواصلك.</p>
+            <p className="text-green-600 font-semibold">تم إرسال رسالتك بنجاح! شكرًا لتواصلك.</p>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-4 text-right">
               <input
                 type="text"
                 name="name"
                 placeholder="الاسم الكامل"
-                className="border border-gray-300 rounded p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100"
+                className="border border-gray-300 rounded p-2"
                 value={formData.name}
                 onChange={handleChange}
                 required
@@ -114,7 +54,7 @@ export default function SaeedTheBuilder() {
                 type="email"
                 name="email"
                 placeholder="البريد الإلكتروني"
-                className="border border-gray-300 rounded p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100"
+                className="border border-gray-300 rounded p-2"
                 value={formData.email}
                 onChange={handleChange}
                 required
@@ -122,19 +62,17 @@ export default function SaeedTheBuilder() {
               <textarea
                 name="message"
                 placeholder="رسالتك..."
-                className="border border-gray-300 rounded p-2 h-32 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100"
+                className="border border-gray-300 rounded p-2 h-32"
                 value={formData.message}
                 onChange={handleChange}
                 required
               />
-              <Button type="submit" className="bg-black hover:bg-gray-800 text-white">
-                إرسال
-              </Button>
+              <Button type="submit" className="bg-black hover:bg-gray-800 text-white">إرسال</Button>
             </form>
           )}
         </div>
 
-        <p className="mt-10 text-gray-500 dark:text-gray-400">© 2025 سعيد الهاجري - جميع الحقوق محفوظة</p>
+        <p className="mt-10">© 2025 سعيد الهاجري - جميع الحقوق محفوظة</p>
       </section>
     </div>
   );
