@@ -5,39 +5,86 @@
   <title>🚧 الموقع تحت الصيانة</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    /* خلفية متدرجة متحركة */
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     body {
       margin: 0;
-      background: #000;
-      color: #00fff7;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-      height: 100vh;
+      align-items: center;
       text-align: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #ffffff;
+      background: linear-gradient(-45deg, #1c1c1c, #2a2a2a, #1c1c1c, #2a2a2a);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
     }
+
     h1 {
       font-size: 50px;
       margin-bottom: 10px;
-      color: #ffcc00;
+      color: #ffd700;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
     }
+
     p {
-      font-size: 20px;
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 8px 0;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     }
+
     .blink {
-      animation: blink 1.5s infinite;
+      animation: blinkText 1.5s infinite;
     }
-    @keyframes blink {
+    @keyframes blinkText {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.3; }
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    }
+
+    /* زر صغير للعودة إلى الرئيس الأعلى */
+    .admin-link {
+      margin-top: 20px;
+    }
+    .admin-link a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #ffd700;
+      color: #1c1c1c;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+    .admin-link a:hover {
+      background-color: #e6c200;
     }
   </style>
 </head>
 <body>
-  <h1>🚧 الموقع تحت الصيانة الملكية</h1>
-  <p class="blink">بأمر من <strong>الرئيس الأعلى سعيد الهاجري</strong> 👑</p>
-  <p>جاري تحسين الجودة، والعودة ستكون أقوى من أي وقت مضى...</p>
-  <p>نرجو من الزوّار الكرام الانتظار، وشكرًا لثقتكم</p>
+  <div class="container">
+    <h1>🚧 الموقع تحت الصيانة الملكية</h1>
+    <p class="blink">بأمر من الرئيس الأعلى سعيد الهاجري 👑</p>
+    <p>نعتذر على الإزعاج، فالموقع يخضع الآن لتحسينات وتحضيرات جديدة ليعود أقوى وأكثر فخامة.</p>
+    <p>شكرًا لثقتكم وصبركم، سنعود قريبًا بميزات أفضل وتجربة أروع.</p>
+    <div class="admin-link">
+      <a href="#">دخول الرئيس الأعلى</a>
+    </div>
+  </div>
 </body>
 </html>
