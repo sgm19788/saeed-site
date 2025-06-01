@@ -2,106 +2,42 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>SaeedTheBuilder V15.3</title>
+  <title>🚧 الموقع تحت الصيانة</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom, #000000, #1a1a1a);
-      color: white;
-      scroll-behavior: smooth;
-    }
-    header {
-      background: #111;
-      padding: 20px;
-      text-align: center;
-      font-size: 28px;
-      font-weight: bold;
-      border-bottom: 3px solid #00adb5;
-    }
-    section {
-      padding: 50px;
-      border-bottom: 1px solid #333;
-    }
-    .section-title {
-      font-size: 30px;
+      background: #000;
       color: #00fff7;
-      margin-bottom: 15px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    h1 {
+      font-size: 50px;
+      margin-bottom: 10px;
+      color: #ffcc00;
+    }
+    p {
+      font-size: 20px;
+    }
+    .blink {
+      animation: blink 1.5s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
     }
   </style>
 </head>
 <body>
-
-<header>👑 مدينة سعيد الهاجري الرقمية - V15.3</header>
-
-<section>
-  <div class="section-title">✨ شاشة الترحيب</div>
-  <p>مرحبًا بك في مدينة الأسطورة الرقمية بإدارة الرئيس الأعلى سعيد الهاجري.</p>
-</section>
-
-<section>
-  <div class="section-title">🏙️ المدينة الرقمية</div>
-  <p>اكتشف أقسام الموقع وكأنك تتجول فعليًا في عالم رقمي متكامل.</p>
-</section> <section>
-  <div class="section-title">🏰 القصر الرقمي</div>
-  <p>هنا تُدار القرارات الكبرى من المكتب الرئاسي للقائد الأعلى سعيد الهاجري.</p>
-</section>
-
-<section>
-  <div class="section-title">🤝 دخول مساعد الرئيس</div>
-  <div style="background:#111; padding:20px; max-width:400px; margin:auto; border:2px solid #00adb5; border-radius:10px;">
-    <p>🔐 دخول خاص لمساعد الرئيس</p>
-    <input type="password" id="abnPass" placeholder="كلمة السر للمساعد">
-    <button onclick="checkABN()">دخول</button>
-    <div id="abnPanel" style="display:none; margin-top:20px; background:#222; padding:15px; border-radius:10px;">
-      <h3>مرحبًا بك يا ABN 👤</h3>
-      <p>لوحتك الخاصة جاهزة، ويمكنك الآن متابعة شؤون الزوّار وخدمة المدينة.</p>
-    </div>
-  </div>
-  <script>
-    function checkABN() {
-      const pass = document.getElementById("abnPass").value;
-      if (pass === "abn321") {
-        document.getElementById("abnPanel").style.display = "block";
-      } else {
-        alert("❌ كلمة السر غير صحيحة.");
-      }
-    }
-  </script>
-</section> <section>
-  <div class="section-title">🧾 نظام المواطنة الرقمية</div>
-  <form onsubmit="registerCitizen(event)" style="max-width:500px;margin:auto;text-align:center;">
-      <input type="text" id="citizenName" placeholder="الاسم الكامل" required><br>
-      <input type="text" id="citizenCountry" placeholder="الدولة" required><br>
-      <textarea id="citizenReason" placeholder="ليش تبغي تكون مواطن في مدينة سعيد؟" required></textarea><br>
-      <button type="submit">طلب الانضمام</button>
-  </form>
-  <div id="citizenResult" style="margin-top:20px;text-align:center;"></div>
-  <script>
-      function registerCitizen(event) {
-          event.preventDefault();
-          const name = document.getElementById("citizenName").value;
-          const country = document.getElementById("citizenCountry").value;
-          const reason = document.getElementById("citizenReason").value;
-          document.getElementById("citizenResult").innerHTML =
-              "👏 تم إرسال طلبك يا " + name + " من " + country + "<br>📬 سيتم مراجعته من قبل الرئيس الأعلى 👑";
-      }
-  </script>
-</section>
-
-<section>
-  <div class="section-title">🎮 مركز التحديات والألعاب</div>
-  <p>العب داخل المدينة الرقمية، واجمع النقاط والأوسمة كأحد المواطنين المميزين.</p>
-</section>
-
-<section>
-  <div class="section-title">📊 مراقبة الزوار</div>
-  <p>عدد الزوار: <span id="visitorCount">1</span></p>
-  <script>
-    let count = localStorage.getItem("visitCount") || 0;
-    count++;
-    localStorage.setItem("visitCount", count);
-    document.getElementById("visitorCount").innerText = count;
-  </script>
-</section>
+  <h1>🚧 الموقع تحت الصيانة الملكية</h1>
+  <p class="blink">بأمر من <strong>الرئيس الأعلى سعيد الهاجري</strong> 👑</p>
+  <p>جاري تحسين الجودة، والعودة ستكون أقوى من أي وقت مضى...</p>
+  <p>نرجو من الزوّار الكرام الانتظار، وشكرًا لثقتكم</p>
+</body>
+</html>
