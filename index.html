@@ -1,125 +1,1606 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>SaeedTheBuilder – تحت الصيانة</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الدولة الرقمية - SaeedTheBuilder</title>
   <style>
-    /* رسم خلفية متدرجة متحركة */
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+      scroll-behavior: smooth;
     }
-
-    /* رسم حركة خفيفة للروابط */
-    @keyframes floatLink {
-      0%   { transform: translateY(0); }
-      50%  { transform: translateY(-5px); }
-      100% { transform: translateY(0); }
-    }
-
-    /* رسم نص يومض */
-    @keyframes blinkText {
-      0%, 100% { opacity: 1; }
-      50%      { opacity: 0.3; }
-    }
-
     body {
-      margin: 0;
+      background: linear-gradient(to bottom right, #001F3F, #003366);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* شاشة الترحيب */
+    header {
       height: 100vh;
-      overflow: hidden;
       display: flex;
+      justify-content: center;
       align-items: center;
-      justify-content: center;
-      background: linear-gradient(-45deg, #1b1b1b, #2f2f2f, #1b1b1b, #2f2f2f);
-      background-size: 400% 400%;
-      animation: gradientBG 20s ease infinite;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #fff;
+      flex-direction: column;
       text-align: center;
+      animation: fadeIn 2s ease-in-out;
+      background: radial-gradient(circle, #002244 20%, #000c1a 100%);
     }
 
-    .container {
-      background: rgba(0, 0, 0, 0.7);
-      padding: 40px 30px;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-      max-width: 600px;
-      width: 90%;
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      animation: floatUp 2s ease-out;
     }
 
-    .site-name {
-      font-size: 48px;
-      font-weight: bold;
-      color: #ffd700;
-      text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
-      margin-bottom: 10px;
+    header p {
+      font-size: 1.2em;
+      color: #bbb;
+      animation: floatUp 2.5s ease-out;
     }
 
-    .maintenance-text {
-      font-size: 24px;
-      margin: 10px 0 20px;
-      line-height: 1.5;
-      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    .start-btn {
+      margin-top: 40px;
+      padding: 15px 30px;
+      font-size: 1.1em;
+      background: #00bcd4;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 188, 212, 0.3);
+      transition: transform 0.3s, background 0.3s;
     }
 
-    .blink {
-      animation: blinkText 1.5s infinite;
-      color: #ffcc00;
-      font-weight: bold;
+    .start-btn:hover {
+      background: #0097a7;
+      transform: scale(1.05);
+      cursor: pointer;
     }
 
-    .social-links {
-      margin-top: 30px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
+    /* أنيميشن */
+    @keyframes fadeIn {
+      from { opacity: 0; } to { opacity: 1; }
     }
 
-    .social-links a {
-      color: #00adb5;
-      text-decoration: none;
-      font-size: 20px;
-      display: inline-block;
-      padding: 10px;
-      border: 2px solid #00adb5;
-      border-radius: 8px;
-      transition: transform 0.3s, background-color 0.3s, color 0.3s;
-      animation: floatLink 3s ease-in-out infinite;
+    @keyframes floatUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    .social-links a:hover {
-      background-color: #00adb5;
-      color: #1b1b1b;
-      transform: scale(1.1);
-      box-shadow: 0 0 15px rgba(0, 173, 181, 0.8);
-    }
-
-    footer {
-      margin-top: 30px;
-      font-size: 14px;
-      color: #aaa;
-      text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    @media(max-width: 768px) {
+      header h1 { font-size: 2em; }
+      .start-btn { font-size: 1em; padding: 12px 24px; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="site-name">SaeedTheBuilder</div>
-    <div class="maintenance-text blink">🚧 تحت الصيانة – نرجو العودة قريبًا 🚧</div>
-    <p class="maintenance-text">
-      نعتذر عن الإزعاج، نسعى حاليًا لتحسين الموقع وإضافة مزايا جديدة
-      ليعود بأفضل حلة ممكنة. شكرًا لصبركم وثقتكم.
-    </p>
-    <div class="social-links">
-      <a href="https://instagram.com/sgalhajri" target="_blank">📸 انستغرام</a>
-      <a href="https://snapchat.com/add/blllllllbl" target="_blank">👻 سناب شات</a>
-      <!-- يمكنك إضافة روابط أخرى هنا -->
-    </div>
-    <footer>
-      © 2025 جميع الحقوق محفوظة لـ SaeedTheBuilder
-    </footer>
-  </div>
+
+  <header>
+    <h1>👑 أهلاً بك في دولة SaeedTheBuilder</h1>
+    <p>هنا تبدأ رحلتك داخل عالم رقمي متكامل من القيادة، الأمن، والهيبة.</p>
+    <button class="start-btn" onclick="window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });">
+      🚀 ابدأ الجولة الملكية
+    </button>
+  </header>
+
 </body>
-</html>
+</html> <!-- المدينة الرقمية -->
+<section id="city" style="background:#f0f4f8; color:#003366; padding:80px 20px; text-align:center; animation: fadeIn 1.5s ease-in-out;">
+  <h2 style="font-size:2.5em; margin-bottom:20px; animation: floatUp 1.5s ease-out;">🌍 المدينة الرقمية الكبرى</h2>
+  <p style="max-width:700px; margin:auto; font-size:1.1em; animation: floatUp 2s ease-out;">
+    استكشف بوابة الأقسام، وانطلق في عالم مليء بالأمن، الذكاء، الترفيه، والمواطنة.  
+    كل مبنى هنا يمثل هيئة من هيئات الدولة.
+  </p>
+
+  <div style="margin-top:50px; display:flex; flex-wrap:wrap; justify-content:center; gap:30px;">
+    <div class="card">
+      <h3>🏰 القصر الملكي</h3>
+      <p>مقر القيادة العليا، مصدر القرارات السيادية الكبرى.</p>
+    </div>
+    <div class="card">
+      <h3>🛡️ السلطات الأمنية</h3>
+      <p>الحصن الرقمي الذي يحمي الزوار من الاختراق والمخاطر.</p>
+    </div>
+    <div class="card">
+      <h3>🎮 الترفيه والتحديات</h3>
+      <p>ألغاز، أسئلة، وجوائز تفاعلية داخل الدولة الرقمية.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    width: 280px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: floatUp 2.5s ease-out;
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  }
+
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+</style> <!-- القصر الملكي -->
+<section id="royal-palace" style="background:linear-gradient(to bottom, #1c1c1c, #000); color:#ffd700; padding:80px 20px; text-align:center; animation: fadeIn 2s ease-in-out;">
+  <h2 style="font-size:2.7em; animation: floatUp 1.5s ease-out;">🏰 القصر الملكي الأعلى</h2>
+  <p style="max-width:750px; margin:auto; font-size:1.2em; animation: floatUp 2s ease-out;">
+    هنا تُدار الدولة الرقمية من قلب العرش.  
+    مكتب الرئيس الأعلى <strong>سعيد الهاجري</strong>، مركز إصدار الأوامر، وتوقيع القوانين العليا.
+  </p>
+
+  <div style="margin-top:60px; background:#2c2c2c; padding:30px; border-radius:20px; max-width:700px; margin:auto; animation: floatUp 2.5s ease-out;">
+    <h3 style="color:#ffeb3b;">🪪 بيانات القصر:</h3>
+    <p>🔹 الرئيس الأعلى: <strong>سعيد بن غصاب الهاجري</strong></p>
+    <p>🔹 الصلاحيات: قيادة، حماية، قرار، سيادة، إصدار أوامر مباشرة</p>
+    <p>🔹 الموقع: مركز المدينة الرقمية - المنطقة السيادية العليا</p>
+  </div>
+
+  <button onclick="alert('🚫 دخول محظور – تصريح غير مفعّل 🔐')" style="margin-top:40px; padding:15px 35px; background:#d32f2f; color:white; border:none; border-radius:10px; font-size:1.1em; animation: floatUp 3s ease-out;">
+    🔐 محاولة دخول القصر
+  </button>
+
+  <div style="margin-top:40px; font-size:0.9em; color:#aaa;">
+    🛡️ محمي بأنظمة تشفير ملكية – الدخول مرصود من الأمن السيبراني المركزي.
+  </div>
+</section>
+
+<style>
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+</style> <!-- لوحة تحكم نائب الرئيس -->
+<section id="vp-panel" style="background:#e3f2fd; color:#0d47a1; padding:80px 20px; text-align:center; animation: fadeIn 1.5s ease-in-out;">
+  <h2 style="font-size:2.4em; animation: floatUp 1.2s ease-out;">🧭 لوحة نائب الرئيس</h2>
+  <p style="max-width:700px; margin:auto; font-size:1.1em; animation: floatUp 1.6s ease-out;">
+    تحكم مباشر في أقسام الدولة الرقمية في حال غياب الرئيس الأعلى.  
+    يمكنك إرسال تقارير، تفعيل أنظمة، أو استدعاء أعضاء الطوارئ.
+  </p>
+
+  <div style="margin-top:50px; display:flex; flex-wrap:wrap; justify-content:center; gap:30px;">
+    <div class="vp-box">
+      <h3>📨 إرسال تقرير عاجل</h3>
+      <p>ارسل ملخص الحالة مباشرة للرئيس الأعلى.</p>
+      <button onclick="alert('📬 تم إرسال التقرير!')" class="vp-btn">إرسال</button>
+    </div>
+    <div class="vp-box">
+      <h3>⚙️ تفعيل/إيقاف الأقسام</h3>
+      <p>تحكم مؤقت في ظهور أقسام محددة داخل المدينة الرقمية.</p>
+      <button onclick="alert('✅ تم تفعيل التحكم المؤقت!')" class="vp-btn">تفعيل</button>
+    </div>
+    <div class="vp-box">
+      <h3>🚨 تنبيه طوارئ</h3>
+      <p>إرسال تنبيه فوري لأعضاء المجلس للتحقيق الفوري.</p>
+      <button onclick="alert('🚨 تم إرسال التنبيه لجميع الأعضاء!')" class="vp-btn">تنبيه</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .vp-box {
+    background: white;
+    color: #0d47a1;
+    padding: 25px;
+    border-radius: 15px;
+    width: 280px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: floatUp 2s ease-out;
+  }
+
+  .vp-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  }
+
+  .vp-btn {
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: #0d47a1;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: 0.3s;
+  }
+
+  .vp-btn:hover {
+    background: #1565c0;
+    cursor: pointer;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style> <!-- لوحة تحكم السكرتير العام -->
+<section id="secretary-panel" style="background:#f3e5f5; color:#4a148c; padding:80px 20px; text-align:center; animation: fadeIn 1.5s ease-in-out;">
+  <h2 style="font-size:2.4em; animation: floatUp 1.2s ease-out;">📂 لوحة السكرتير العام</h2>
+  <p style="max-width:700px; margin:auto; font-size:1.1em; animation: floatUp 1.6s ease-out;">
+    إدارة المراسلات الرسمية، الجداول الزمنية، ومتابعة الاجتماعات الرئاسية.  
+    كل ما تحتاجه لتبقى الدولة في انضباط دقيق.
+  </p>
+
+  <div style="margin-top:50px; display:flex; flex-wrap:wrap; justify-content:center; gap:30px;">
+    <div class="sec-box">
+      <h3>📅 جدول اليوم</h3>
+      <p>إدارة أحداث اليوم، الاجتماعات، والتنبيهات.</p>
+      <button onclick="alert('📋 تم فتح الجدول!')" class="sec-btn">عرض الجدول</button>
+    </div>
+    <div class="sec-box">
+      <h3>📝 إرسال مذكرة</h3>
+      <p>إرسال رسالة رسمية باسم الإدارة العليا لأي جهة.</p>
+      <button onclick="alert('📨 تم إرسال المذكرة!')" class="sec-btn">إرسال</button>
+    </div>
+    <div class="sec-box">
+      <h3>📦 أرشيف المراسلات</h3>
+      <p>عرض محفوظات البريد الرسمي والوثائق القديمة.</p>
+      <button onclick="alert('🗂️ تم فتح الأرشيف!')" class="sec-btn">فتح</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sec-box {
+    background: white;
+    color: #4a148c;
+    padding: 25px;
+    border-radius: 15px;
+    width: 280px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: floatUp 2s ease-out;
+  }
+
+  .sec-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  }
+
+  .sec-btn {
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: #6a1b9a;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: 0.3s;
+  }
+
+  .sec-btn:hover {
+    background: #8e24aa;
+    cursor: pointer;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style> <!-- لوحة مستشار الأمن السيبراني -->
+<section id="cyber-panel" style="background:#263238; color:#80deea; padding:80px 20px; text-align:center; animation: fadeIn 1.5s ease-in-out;">
+  <h2 style="font-size:2.4em; animation: floatUp 1.2s ease-out;">🛡️ لوحة مستشار الأمن السيبراني</h2>
+  <p style="max-width:700px; margin:auto; font-size:1.1em; color:#b2ebf2; animation: floatUp 1.6s ease-out;">
+    تحكّم مباشر في نظام المراقبة، تحليل الهجمات، وتفعيل الجدران النارية.  
+    كل التهديدات تمر عبر هذا المركز لحماية الدولة الرقمية.
+  </p>
+
+  <div style="margin-top:50px; display:flex; flex-wrap:wrap; justify-content:center; gap:30px;">
+    <div class="cyber-box">
+      <h3>👁️ مراقبة الدخول</h3>
+      <p>عرض محاولات الدخول وتحديد الأنشطة المشبوهة.</p>
+      <button onclick="alert('📊 سجل الدخول محدث!')" class="cyber-btn">عرض الآن</button>
+    </div>
+    <div class="cyber-box">
+      <h3>🔐 تفعيل جدار الحماية</h3>
+      <p>تشغيل الدرع الرقمي لحماية الموقع من الهجمات.</p>
+      <button onclick="alert('🛡️ تم تفعيل الجدار الناري!')" class="cyber-btn">تفعيل</button>
+    </div>
+    <div class="cyber-box">
+      <h3>📡 تحليل التهديدات</h3>
+      <p>تشغيل الماسح الآلي لتحليل أي خطر قادم.</p>
+      <button onclick="alert('✅ تم تحليل الأنشطة بنجاح!')" class="cyber-btn">ابدأ التحليل</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cyber-box {
+    background: #37474f;
+    color: #b2ebf2;
+    padding: 25px;
+    border-radius: 15px;
+    width: 280px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: floatUp 2s ease-out;
+  }
+
+  .cyber-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  }
+
+  .cyber-btn {
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: #00acc1;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: 0.3s;
+  }
+
+  .cyber-btn:hover {
+    background: #00838f;
+    cursor: pointer;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style> <!-- قسم الأمن الرقمي -->
+<section id="cyber-security" style="background:#000000; color:#76ff03; padding:80px 20px; text-align:center; animation: fadeIn 1.5s ease-in-out;">
+  <h2 style="font-size:2.5em; animation: floatUp 1.2s ease-out;">🚨 الأمن السيبراني العام</h2>
+  <p style="max-width:700px; margin:auto; font-size:1.1em; color:#b9f6ca; animation: floatUp 1.6s ease-out;">
+    هذا القسم مسؤول عن حماية جميع الزوار من الهجمات الرقمية، مراقبة التحركات المشبوهة، والتصدي للاختراقات قبل وقوعها.
+  </p>
+
+  <div style="margin-top:50px; display:flex; flex-wrap:wrap; justify-content:center; gap:30px;">
+    <div class="sec-box">
+      <h3>👁️ مراقبة الزوار</h3>
+      <p>تحليل الزوار لحماية خصوصيتهم ومتابعة السلوك المشبوه.</p>
+      <button onclick="alert('👁️ جارٍ عرض سجل الزوار...')" class="sec-btn">عرض الزوار</button>
+    </div>
+    <div class="sec-box">
+      <h3>🧪 نظام التحريات</h3>
+      <p>تشغيل وحدة التحليل الرقمي العميق لرصد أي خطر خفي.</p>
+      <button onclick="alert('🧠 التحليل بدأ!')" class="sec-btn">ابدأ التحري</button>
+    </div>
+    <div class="sec-box">
+      <h3>💣 رصد اختراق</h3>
+      <p>تنبيه فوري إذا تم رصد محاولة غير شرعية للدخول.</p>
+      <button onclick="alert('⚠️ لا يوجد تهديدات حالياً')" class="sec-btn">تشغيل الرادار</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sec-box {
+    background: #1b1b1b;
+    color: #76ff03;
+    padding: 25px;
+    border-radius: 15px;
+    width: 280px;
+    box-shadow: 0 10px 25px rgba(0,255,0,0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: floatUp 2s ease-out;
+  }
+
+  .sec-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,255,0,0.25);
+  }
+
+  .sec-btn {
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: #64dd17;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: 0.3s;
+  }
+
+  .sec-btn:hover {
+    background: #76ff03;
+    cursor: pointer;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style> <!-- قسم الشرطة الرقمية -->
+<section id="digital-police" style="background:#263238; color:#ffffff; padding:80px 20px; text-align:center; animation: fadeIn 1.5s ease-in-out;">
+  <h2 style="font-size:2.4em; color:#4dd0e1; animation: floatUp 1.2s ease-out;">🚔 قسم الشرطة الرقمية</h2>
+  <p style="max-width:700px; margin:auto; font-size:1.1em; color:#b2ebf2; animation: floatUp 1.6s ease-out;">
+    هذا القسم مسؤول عن التحقيق، الاستجابة للبلاغات، وتنفيذ أوامر التوقيف داخل حدود الدولة الرقمية.  
+    جميع الأنشطة مرصودة وتُعالج فورياً بحسب القوانين الصارمة.
+  </p>
+
+  <div style="margin-top:50px; display:flex; flex-wrap:wrap; justify-content:center; gap:30px;">
+    <div class="police-box">
+      <h3>📢 بلاغ إلكتروني</h3>
+      <p>استقبال بلاغات من الزوار أو الإداريين بشأن أي تجاوز رقمي.</p>
+      <button onclick="alert('📥 تم تسجيل البلاغ!')" class="police-btn">إرسال بلاغ</button>
+    </div>
+    <div class="police-box">
+      <h3>📍 تتبع الهدف</h3>
+      <p>ملاحقة المشبوهين داخل منظومة الموقع ورصد تحركاتهم.</p>
+      <button onclick="alert('📡 التتبع بدأ...')" class="police-btn">تفعيل التتبع</button>
+    </div>
+    <div class="police-box">
+      <h3>🔗 تنفيذ التوقيف</h3>
+      <p>تفعيل أمر التوقيف لأي مستخدم اخترق القانون الرقمي للدولة.</p>
+      <button onclick="alert('🚓 جاري تنفيذ الأمر...')" class="police-btn">إصدار أمر</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .police-box {
+    background: #37474f;
+    color: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    width: 280px;
+    box-shadow: 0 10px 25px rgba(0,255,255,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: floatUp 2s ease-out;
+  }
+
+  .police-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,255,255,0.2);
+  }
+
+  .police-btn {
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: #00bcd4;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: 0.3s;
+  }
+
+  .police-btn:hover {
+    background: #008ba3;
+    cursor: pointer;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style> <!-- السجن الرقمي المركزي -->
+<section id="digital-prison" style="background:#1b1b1b; color:#f44336; padding:80px 20px; text-align:center; animation: fadeIn 1.5s ease-in-out;">
+  <h2 style="font-size:2.5em; animation: floatUp 1.2s ease-out;">⛓️ السجن الرقمي المركزي</h2>
+  <p style="max-width:750px; margin:auto; font-size:1.1em; color:#ff8a80; animation: floatUp 1.6s ease-out;">
+    المكان الذي يُعزل فيه كل من يخترق أنظمة الدولة الرقمية أو يضر بالزوار.  
+    الدخول إليه دائم، والخروج منه فقط بأمر مباشر من الرئيس الأعلى.
+  </p>
+
+  <div style="margin-top:50px; display:flex; flex-wrap:wrap; justify-content:center; gap:30px;">
+    <div class="prison-box">
+      <h3>📛 لائحة السجناء</h3>
+      <p>عرض الأسماء الرقمية المحظورة بسبب اختراق القوانين.</p>
+      <button onclick="alert('📋 لا يوجد سجناء حالياً.')" class="prison-btn">عرض السجناء</button>
+    </div>
+    <div class="prison-box">
+      <h3>🔐 عزل مؤقت</h3>
+      <p>نقل الزائر إلى الحجر الرقمي للمراقبة قبل التحقيق.</p>
+      <button onclick="alert('🚧 تم العزل المؤقت.')" class="prison-btn">عزل الآن</button>
+    </div>
+    <div class="prison-box">
+      <h3>🧾 طلب عفو رئاسي</h3>
+      <p>تقديم طلب للعفو يراجعه الرئيس الأعلى مباشرة.</p>
+      <button onclick="alert('📨 تم تقديم الطلب للرئاسة.')" class="prison-btn">طلب العفو</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .prison-box {
+    background: #2a2a2a;
+    color: #ff8a80;
+    padding: 25px;
+    border-radius: 15px;
+    width: 280px;
+    box-shadow: 0 10px 25px rgba(255,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: floatUp 2s ease-out;
+  }
+
+  .prison-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255,0,0,0.2);
+  }
+
+  .prison-btn {
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: #e53935;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: 0.3s;
+  }
+
+  .prison-btn:hover {
+    background: #b71c1c;
+    cursor: pointer;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style> <!-- محكمة العدل -->
+<section id="digital-court" style="background:#fff3e0; color:#bf360c; padding:80px 20px; text-align:center; animation: fadeIn 1.5s ease-in-out;">
+  <h2 style="font-size:2.5em; animation: floatUp 1.2s ease-out;">⚖️ محكمة العدل الرقمية</h2>
+  <p style="max-width:750px; margin:auto; font-size:1.1em; color:#e64a19; animation: floatUp 1.6s ease-out;">
+    المحكمة العليا للفصل في النزاعات الرقمية، مراجعة الانتهاكات،  
+    وتحديد مصير من يُحاكم داخل الدولة الرقمية تحت إشراف الرئيس الأعلى مباشرة.
+  </p>
+
+  <div style="margin-top:50px; display:flex; flex-wrap:wrap; justify-content:center; gap:30px;">
+    <div class="court-box">
+      <h3>📑 عرض القضايا</h3>
+      <p>استعراض القضايا المسجلة في النظام الرقمي.</p>
+      <button onclick="alert('📂 لا توجد قضايا حالياً.')" class="court-btn">عرض القضايا</button>
+    </div>
+    <div class="court-box">
+      <h3>🧑‍⚖️ بدء المحاكمة</h3>
+      <p>إطلاق جلسة قضائية رقمية لمراجعة البلاغات والشكاوى.</p>
+      <button onclick="alert('🛑 تم بدء جلسة المحكمة.') " class="court-btn">بدء الجلسة</button>
+    </div>
+    <div class="court-box">
+      <h3>📬 استئناف الحكم</h3>
+      <p>تقديم طلب لاستئناف حكم تم إصداره ضد أحد المواطنين.</p>
+      <button onclick="alert('📨 تم إرسال طلب الاستئناف.') " class="court-btn">استئناف</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .court-box {
+    background: #ffe0b2;
+    color: #bf360c;
+    padding: 25px;
+    border-radius: 15px;
+    width: 280px;
+    box-shadow: 0 10px 25px rgba(255,138,101,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: floatUp 2s ease-out;
+  }
+
+  .court-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255,138,101,0.3);
+  }
+
+  .court-btn {
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: #e64a19;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: 0.3s;
+  }
+
+  .court-btn:hover {
+    background: #bf360c;
+    cursor: pointer;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style> <!-- بطاقة المواطنة -->
+<section id="citizenship-card" style="background:#ede7f6; color:#4a148c; padding:80px 20px; text-align:center; animation: fadeIn 1.5s ease-in-out;">
+  <h2 style="font-size:2.5em; animation: floatUp 1.2s ease-out;">🎖️ بطاقة المواطنة الرقمية</h2>
+  <p style="max-width:750px; margin:auto; font-size:1.1em; color:#6a1b9a; animation: floatUp 1.6s ease-out;">
+    احصل على شرف المواطنة داخل الدولة الرقمية لسعيد الهاجري،  
+    واستمتع بمزايا خاصة مثل الدخول الحصري، التفاعل المباشر، والامتيازات التقديرية.
+  </p>
+
+  <div style="margin-top:50px;">
+    <form onsubmit="event.preventDefault(); alert('🎉 تم إصدار بطاقة المواطنة!')" style="max-width:500px; margin:auto; background:#fff; padding:30px; border-radius:15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); animation: floatUp 2s ease-out;">
+      <input type="text" placeholder="👤 الاسم الكامل" required style="width:100%; padding:12px; border:none; border-radius:10px; margin-bottom:15px; font-size:1.1em;">
+      <input type="email" placeholder="📧 البريد الإلكتروني" required style="width:100%; padding:12px; border:none; border-radius:10px; margin-bottom:15px; font-size:1.1em;">
+      <button type="submit" style="padding:12px 30px; background:#7b1fa2; color:white; border:none; border-radius:10px; font-size:1.1em;">طلب البطاقة</button>
+    </form>
+  </div>
+</section>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style> <!-- حرس القيادة العليا -->
+<section id="royal-guard" style="background:#212121; color:#ffca28; padding:80px 20px; text-align:center; animation: fadeIn 1.5s ease-in-out;">
+  <h2 style="font-size:2.5em; animation: floatUp 1.2s ease-out;">🛡️ حرس القيادة العليا</h2>
+  <p style="max-width:750px; margin:auto; font-size:1.1em; color:#fff176; animation: floatUp 1.6s ease-out;">
+    نخبة الصفوة من الجنود السيبرانيين المكلفين بحماية الرئيس الأعلى،  
+    تأمين القصر الملكي، والتصدي لأي محاولة اختراق جسيمة.
+  </p>
+
+  <div style="margin-top:50px; display:flex; flex-wrap:wrap; justify-content:center; gap:30px;">
+    <div class="guard-box">
+      <h3>🧍 تمركز الحرس</h3>
+      <p>نشر قوات الحماية حول القصر الرقمي والبوابات الحساسة.</p>
+      <button onclick="alert('✅ تم نشر القوات حول القصر.')" class="guard-btn">تنفيذ</button>
+    </div>
+    <div class="guard-box">
+      <h3>🚨 إنذار تهديد</h3>
+      <p>إطلاق إنذار فوري في حال اكتشاف خطر إلكتروني موجه للقيادة.</p>
+      <button onclick="alert('🚨 تم إطلاق الإنذار للقيادة.')" class="guard-btn">إطلاق إنذار</button>
+    </div>
+    <div class="guard-box">
+      <h3>🧠 تحليل الذكاء الأمني</h3>
+      <p>تفعيل نظام تحليل ذكي لاستباق الهجمات الكبيرة.</p>
+      <button onclick="alert('📡 تم تشغيل نظام التحليل المتقدم.')" class="guard-btn">ابدأ التحليل</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .guard-box {
+    background: #424242;
+    color: #ffeb3b;
+    padding: 25px;
+    border-radius: 15px;
+    width: 280px;
+    box-shadow: 0 10px 25px rgba(255,235,59,0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: floatUp 2s ease-out;
+  }
+
+  .guard-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255,235,59,0.25);
+  }
+
+  .guard-btn {
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: #fdd835;
+    color: #212121;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: 0.3s;
+  }
+
+  .guard-btn:hover {
+    background: #ffee58;
+    cursor: pointer;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style> <!-- القصر الملكي الرقمي -->
+<section id="royal-palace" style="background:#e0f7fa; color:#006064; padding:80px 20px; text-align:center; animation: fadeIn 1.5s ease-in-out;">
+  <h2 style="font-size:2.6em; animation: floatUp 1.2s ease-out;">🏰 القصر الملكي الرقمي</h2>
+  <p style="max-width:750px; margin:auto; font-size:1.15em; color:#00838f; animation: floatUp 1.6s ease-out;">
+    المقر السيادي للرئيس الأعلى سعيد الهاجري، حيث تُعقد الاجتماعات المغلقة،  
+    وتُدار البلاد الرقمية من أعلى قمة في منظومة الحُكم.
+  </p>
+
+  <div style="margin-top:50px; display:flex; flex-wrap:wrap; justify-content:center; gap:30px;">
+    <div class="palace-box">
+      <h3>🔒 بوابة القصر</h3>
+      <p>دخول خاص بإذن مسبق من القيادة العليا.</p>
+      <button onclick="alert('🚪 تم طلب الإذن بالدخول.')" class="palace-btn">طلب الدخول</button>
+    </div>
+    <div class="palace-box">
+      <h3>🧭 غرفة القيادة</h3>
+      <p>مكان إصدار الأوامر العليا لجميع أجهزة الدولة الرقمية.</p>
+      <button onclick="alert('🧠 تم فتح غرفة القيادة.')" class="palace-btn">دخول القيادة</button>
+    </div>
+    <div class="palace-box">
+      <h3>💬 مجلس الشورى</h3>
+      <p>التشاور مع أعضاء الدولة حول التحديثات القادمة.</p>
+      <button onclick="alert('📜 تم فتح مجلس الشورى.')" class="palace-btn">فتح المجلس</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .palace-box {
+    background: #ffffff;
+    color: #006064;
+    padding: 25px;
+    border-radius: 15px;
+    width: 280px;
+    box-shadow: 0 10px 25px rgba(0,188,212,0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: floatUp 2s ease-out;
+  }
+
+  .palace-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,188,212,0.25);
+  }
+
+  .palace-btn {
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: #00acc1;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: 0.3s;
+  }
+
+  .palace-btn:hover {
+    background: #0097a7;
+    cursor: pointer;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style> <!-- قسم السياحة -->
+<section id="tourism-zone" style="background:#fff8e1; color:#ff6f00; padding:80px 20px; text-align:center; animation: fadeIn 1.5s ease-in-out;">
+  <h2 style="font-size:2.5em; animation: floatUp 1.2s ease-out;">🌐 قسم السياحة الرقمية</h2>
+  <p style="max-width:750px; margin:auto; font-size:1.1em; color:#ff8f00; animation: floatUp 1.6s ease-out;">
+    انطلق في جولة مدهشة داخل مدننا الرقمية، قم بزيارة القصر، المحكمة، الميناء،  
+    والحدائق التفاعلية… كل زاوية تخبرك بقصة جديدة.
+  </p>
+
+  <div style="margin-top:50px; display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:30px;">
+    <div class="tour-box">
+      <h3>🏰 القصر الكبير</h3>
+      <p>زيارة افتراضية لتفاصيل قصر الرئيس الأعلى ومرافقه.</p>
+      <button onclick="alert('🎥 جاري بدء الجولة في القصر.')" class="tour-btn">زيارة</button>
+    </div>
+    <div class="tour-box">
+      <h3>🏞️ الحدائق الذكية</h3>
+      <p>أماكن مريحة للزوار للاستجمام والتأمل وسط الطبيعة الرقمية.</p>
+      <button onclick="alert('🍃 تم الدخول إلى الحدائق.')" class="tour-btn">الدخول</button>
+    </div>
+    <div class="tour-box">
+      <h3>🗺️ خريطة المحتوى</h3>
+      <p>نظام تنقّل تفاعلي يُرشدك لجميع أقسام الدولة الرقمية.</p>
+      <button onclick="alert('📍 جاري عرض الخريطة...')" class="tour-btn">فتح الخريطة</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .tour-box {
+    background: #fff3e0;
+    color: #ef6c00;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(255,152,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: floatUp 2s ease-out;
+  }
+
+  .tour-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255,152,0,0.2);
+  }
+
+  .tour-btn {
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: #ffa726;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: 0.3s;
+  }
+
+  .tour-btn:hover {
+    background: #fb8c00;
+    cursor: pointer;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style> <!-- قسم الانتخابات -->
+<section id="digital-election" style="background:#fce4ec; color:#880e4f; padding:80px 20px; text-align:center; animation: fadeIn 1.5s ease-in-out;">
+  <h2 style="font-size:2.5em; animation: floatUp 1.2s ease-out;">🗳️ نظام الانتخابات الرقمية</h2>
+  <p style="max-width:750px; margin:auto; font-size:1.1em; color:#ad1457; animation: floatUp 1.6s ease-out;">
+    شارك في انتخابات الدولة الرقمية، اختر من يمثلك في الأقسام الإدارية،  
+    وساعد في اتخاذ قرارات جماعية لتطوير العالم الرقمي العظيم.
+  </p>
+
+  <div style="margin-top:50px;">
+    <form onsubmit="event.preventDefault(); alert('✅ تم تسجيل صوتك بنجاح!')" style="max-width:500px; margin:auto; background:#ffffff; padding:30px; border-radius:15px; box-shadow:0 10px 25px rgba(0,0,0,0.1); animation: floatUp 2s ease-out;">
+      <label style="font-size:1.1em; display:block; margin-bottom:10px;">اختر ممثلك:</label>
+      <select required style="width:100%; padding:12px; border-radius:10px; border:none; margin-bottom:20px; font-size:1em;">
+        <option value="">-- اختر أحد المرشحين --</option>
+        <option value="1">👨‍💼 مرشح الأمن السيبراني</option>
+        <option value="2">👩‍⚖️ مرشح الشؤون القانونية</option>
+        <option value="3">🎓 مرشح التعليم والتطوير</option>
+      </select>
+      <button type="submit" style="padding:12px 30px; background:#c2185b; color:white; border:none; border-radius:10px; font-size:1.1em;">تصويت</button>
+    </form>
+  </div>
+</section>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style> <!-- قسم الترفيه -->
+<section id="entertainment" style="background:#f3e5f5; color:#4a148c; padding:80px 20px; text-align:center; animation: fadeIn 1.5s ease-in-out;">
+  <h2 style="font-size:2.5em; animation: floatUp 1.2s ease-out;">🎮 قسم الترفيه التفاعلي</h2>
+  <p style="max-width:750px; margin:auto; font-size:1.1em; color:#6a1b9a; animation: floatUp 1.6s ease-out;">
+    شارك في مسابقات، ألعاب، وتحديات ثقافية داخل الدولة الرقمية…  
+    اسأل، جاوب، اربح، واحتفظ بوسام الشرف!
+  </p>
+
+  <div style="margin-top:50px; display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:30px;">
+    <div class="game-box">
+      <h3>🕌 سؤال ديني</h3>
+      <p>ما هو أول مسجد بُني في الإسلام؟</p>
+      <button onclick="alert('✅ الإجابة: مسجد قباء')" class="game-btn">كشف الإجابة</button>
+    </div>
+    <div class="game-box">
+      <h3>🌍 سؤال جغرافي</h3>
+      <p>ما هي أكبر قارة في العالم من حيث المساحة؟</p>
+      <button onclick="alert('✅ الإجابة: قارة آسيا')" class="game-btn">كشف الإجابة</button>
+    </div>
+    <div class="game-box">
+      <h3>🎯 تحدي عشوائي</h3>
+      <p>اختر رقم وجرّب حظك!</p>
+      <button onclick="alert('🎲 رقم حظك هو: ' + Math.floor(Math.random() * 100))" class="game-btn">اضغط هنا</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .game-box {
+    background: #ede7f6;
+    color: #4a148c;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(74,21,140,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: floatUp 2s ease-out;
+  }
+
+  .game-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(74,21,140,0.2);
+  }
+
+  .game-btn {
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: #7b1fa2;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: 0.3s;
+  }
+
+  .game-btn:hover {
+    background: #6a1b9a;
+    cursor: pointer;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style> <!-- مركز الاستخبارات الرقمية -->
+<section id="intelligence-center" style="background:#263238; color:#80deea; padding:80px 20px; text-align:center; animation: fadeIn 1.5s ease-in-out;">
+  <h2 style="font-size:2.5em; animation: floatUp 1.2s ease-out;">🧠 مركز الاستخبارات الرقمية</h2>
+  <p style="max-width:750px; margin:auto; font-size:1.1em; color:#b2ebf2; animation: floatUp 1.6s ease-out;">
+    هنا يتم تحليل حركة الزوار، وتتبع الأنماط المشبوهة، واستباق التهديدات قبل حدوثها.  
+    يعمل المركز بتقنيات ذكاء صناعي فائقة السرعة وخوارزميات سيبرانية متقدمة.
+  </p>
+
+  <div style="margin-top:50px; display:flex; flex-wrap:wrap; justify-content:center; gap:30px;">
+    <div class="intel-box">
+      <h3>📊 مراقبة السلوك</h3>
+      <p>تحليل سلوك الزوار بحثًا عن تصرفات غير معتادة.</p>
+      <button onclick="alert('🧬 بدأ التحليل السلوكي.')" class="intel-btn">ابدأ التحليل</button>
+    </div>
+    <div class="intel-box">
+      <h3>🔍 تحقيق فوري</h3>
+      <p>فتح ملف استخباراتي لعنوان IP مشبوه.</p>
+      <button onclick="alert('📁 تم فتح التحقيق في النشاط.') " class="intel-btn">ابدأ التحقيق</button>
+    </div>
+    <div class="intel-box">
+      <h3>🛰️ نشاط دولي</h3>
+      <p>تتبع تهديدات من مصادر أجنبية ومحاولات اختراق خارجية.</p>
+      <button onclick="alert('📡 تم تتبع إشارات مشبوهة من الخارج.')" class="intel-btn">تتبع</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .intel-box {
+    background: #37474f;
+    color: #80deea;
+    padding: 25px;
+    border-radius: 15px;
+    width: 280px;
+    box-shadow: 0 10px 25px rgba(0,188,212,0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: floatUp 2s ease-out;
+  }
+
+  .intel-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,188,212,0.25);
+  }
+
+  .intel-btn {
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: #00acc1;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: 0.3s;
+  }
+
+  .intel-btn:hover {
+    background: #00838f;
+    cursor: pointer;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style> <!-- قسم التحريات -->
+<section id="investigations" style="background:#fbe9e7; color:#bf360c; padding:80px 20px; text-align:center; animation: fadeIn 1.5s ease-in-out;">
+  <h2 style="font-size:2.5em; animation: floatUp 1.2s ease-out;">🕵️‍♂️ قسم التحريات</h2>
+  <p style="max-width:750px; margin:auto; font-size:1.1em; color:#e64a19; animation: floatUp 1.6s ease-out;">
+    تبدأ من هنا عمليات التحري الرقمي خلف النشاطات المريبة.  
+    يتم إرسال فرق تحليل خفية لمراقبة وتوثيق أي تحرك غير اعتيادي.
+  </p>
+
+  <div style="margin-top:50px; display:flex; flex-wrap:wrap; justify-content:center; gap:30px;">
+    <div class="detective-box">
+      <h3>📁 فتح ملف تحري</h3>
+      <p>بدء تحقيق رقمي خاص بزائر معين أو نشاط محدد.</p>
+      <button onclick="alert('📂 تم فتح ملف التحري بنجاح.')" class="detective-btn">فتح الملف</button>
+    </div>
+    <div class="detective-box">
+      <h3>🛰️ تتبع متخفي</h3>
+      <p>تفعيل تقنية التتبع الصامت لتحديد الأنشطة الخفية.</p>
+      <button onclick="alert('🛰️ تم التتبع بنجاح.')" class="detective-btn">ابدأ التتبع</button>
+    </div>
+    <div class="detective-box">
+      <h3>🧾 تقرير التحريات</h3>
+      <p>استعراض نتائج العمليات السابقة وتحليلها بدقة.</p>
+      <button onclick="alert('📊 لا توجد نتائج حالياً.')" class="detective-btn">عرض التقارير</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .detective-box {
+    background: #ffccbc;
+    color: #bf360c;
+    padding: 25px;
+    border-radius: 15px;
+    width: 280px;
+    box-shadow: 0 10px 25px rgba(255,87,34,0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: floatUp 2s ease-out;
+  }
+
+  .detective-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255,87,34,0.25);
+  }
+
+  .detective-btn {
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: 0.3s;
+  }
+
+  .detective-btn:hover {
+    background: #e64a19;
+    cursor: pointer;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style> <section id="high-council" style="background:#ede7f6; color:#4a148c; padding:80px 20px; text-align:center; animation:fadeIn 1.5s ease-in-out;">
+  <h2 style="font-size:2.6em; animation:floatUp 1.2s ease-out;">🏛️ المجلس الأعلى للدولة الرقمية</h2>
+  <p style="max-width:700px; margin:auto; font-size:1.1em; animation:floatUp 1.5s ease-out; color:#6a1b9a;">
+    يتكوّن المجلس من نخبة المستشارين، الوزراء الرقميين، ونائب الرئيس، ويُعتبر الجهة العليا المسؤولة عن سنّ القوانين الرقمية وتنظيم الدولة.
+  </p>
+  <div style="margin-top:50px; display:flex; flex-wrap:wrap; justify-content:center; gap:30px;">
+    <div style="background:#fff; padding:25px; border-radius:15px; width:280px; box-shadow:0 10px 25px rgba(0,0,0,0.1); animation:floatUp 1.8s;">
+      <h3>👤 الرئيس الأعلى</h3><p>صاحب السيادة الكاملة والإشراف الأعلى على الدولة.</p>
+    </div>
+    <div style="background:#fff; padding:25px; border-radius:15px; width:280px; box-shadow:0 10px 25px rgba(0,0,0,0.1); animation:floatUp 2s;">
+      <h3>👥 نائب الرئيس</h3><p>اليد اليمنى للرئيس الأعلى والمنسق العام للقطاعات.</p>
+    </div>
+    <div style="background:#fff; padding:25px; border-radius:15px; width:280px; box-shadow:0 10px 25px rgba(0,0,0,0.1); animation:floatUp 2.2s;">
+      <h3>📜 مستشار الشؤون القانونية</h3><p>مراجع الدستور الرقمي والعدالة الرقمية.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+@keyframes fadeIn {
+  from { opacity: 0; } to { opacity: 1; }
+}
+@keyframes floatUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style> <section id="security-authorities" style="background:#263238; color:#80cbc4; padding:80px 20px; text-align:center; animation:fadeIn 1.5s ease-in-out;">
+  <h2 style="font-size:2.5em; animation:floatUp 1.2s ease-out;">🚓 السلطات الأمنية الرقمية</h2>
+  <p style="max-width:750px; margin:auto; font-size:1.1em; color:#b2dfdb; animation:floatUp 1.6s ease-out;">
+    تنفذ القوانين الرقمية، وتفرض الانضباط، وتردع أي محاولات اختراق أو فوضى داخل النظام.  
+    مجهّزة بنظام ذكاء اصطناعي لمراقبة وإصدار الإنذارات.
+  </p>
+
+  <div style="margin-top:50px; display:flex; flex-wrap:wrap; justify-content:center; gap:30px;">
+    <div class="sec-box">
+      <h3>🚨 وحدة الإنذار الرقمي</h3>
+      <p>تفعيل الإنذار في حال حدوث اختراق أو سلوك مشبوه.</p>
+      <button onclick="alert('🚨 الإنذار مفعّل!')" class="sec-btn">تفعيل</button>
+    </div>
+    <div class="sec-box">
+      <h3>🧭 الدوريات الذكية</h3>
+      <p>دوريات افتراضية لمراقبة تحركات المستخدمين.</p>
+      <button onclick="alert('🚓 تم إرسال الدوريات بنجاح.')" class="sec-btn">إرسال</button>
+    </div>
+    <div class="sec-box">
+      <h3>📜 تقارير تنفيذية</h3>
+      <p>عرض تقارير تنفيذ العقوبات والتحقيقات.</p>
+      <button onclick="alert('📑 لا توجد تقارير حالياً.')" class="sec-btn">عرض</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sec-box {
+    background: #37474f;
+    color: #b2dfdb;
+    padding: 25px;
+    border-radius: 15px;
+    width: 280px;
+    box-shadow: 0 10px 25px rgba(0,188,212,0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: floatUp 2s ease-out;
+  }
+
+  .sec-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,188,212,0.25);
+  }
+
+  .sec-btn {
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: #00897b;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: 0.3s;
+  }
+
+  .sec-btn:hover {
+    background: #004d40;
+    cursor: pointer;
+  }
+</style> <section id="citizen-rights" style="background:#fff3e0; color:#e65100; padding:80px 20px; text-align:center; animation:fadeIn 1.5s ease-in-out;">
+  <h2 style="font-size:2.6em; animation:floatUp 1.2s ease-out;">📜 حقوق المواطن الرقمي</h2>
+  <p style="max-width:750px; margin:auto; font-size:1.1em; color:#ef6c00; animation:floatUp 1.6s ease-out;">
+    تلتزم الدولة الرقمية بضمان كل الحقوق الإنسانية للمواطنين والزوار،  
+    بدءًا من حرية التعبير إلى الأمان الرقمي الكامل.
+  </p>
+
+  <div style="margin-top:50px; display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:30px;">
+    <div class="rights-box">
+      <h3>🗣️ حرية التعبير</h3>
+      <p>لكل فرد الحق في التعبير عن رأيه بحرية واحترام.</p>
+    </div>
+    <div class="rights-box">
+      <h3>🔐 الحماية الرقمية</h3>
+      <p>جميع بيانات المواطنين والزوار محمية بالكامل.</p>
+    </div>
+    <div class="rights-box">
+      <h3>🧑‍⚖️ حق الدفاع</h3>
+      <p>لكل مواطن الحق في مراجعة أي قرار قضائي رقمي.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .rights-box {
+    background: #ffe0b2;
+    color: #e65100;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(255,87,34,0.1);
+    animation: floatUp 2s ease-out;
+  }
+
+  .rights-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255,87,34,0.2);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style> <section id="research-center" style="background:#e3f2fd; color:#0d47a1; padding:80px 20px; text-align:center; animation:fadeIn 1.5s ease-in-out;">
+  <h2 style="font-size:2.5em; animation:floatUp 1.2s ease-out;">🧪 مركز الأبحاث والتطوير</h2>
+  <p style="max-width:750px; margin:auto; font-size:1.1em; color:#1976d2; animation:floatUp 1.6s ease-out;">
+    هذا المركز مسؤول عن تصميم وتطوير كل المزايا المستقبلية للدولة الرقمية،  
+    من الذكاء الاصطناعي حتى أمن البيانات ونظم التفاعل الذكي.
+  </p>
+
+  <div style="margin-top:50px; display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:30px;">
+    <div class="lab-box">
+      <h3>🧬 مختبر الذكاء الصناعي</h3>
+      <p>تطوير المساعدات الذكية وخوارزميات الموقع المستقبلية.</p>
+    </div>
+    <div class="lab-box">
+      <h3>🔒 مركز الأمن السيبراني</h3>
+      <p>أبحاث دائمة لتقوية جدران الحماية ورصد الثغرات.</p>
+    </div>
+    <div class="lab-box">
+      <h3>💡 تجارب المستخدم</h3>
+      <p>تحسين تجربة الزائر لضمان الراحة والسلاسة التامة.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .lab-box {
+    background: #bbdefb;
+    color: #0d47a1;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(33,150,243,0.15);
+    animation: floatUp 2s ease-out;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .lab-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(33,150,243,0.25);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style> <section id="digital-companies" style="background:#f1f8e9; color:#33691e; padding:80px 20px; text-align:center; animation:fadeIn 1.5s ease-in-out;">
+  <h2 style="font-size:2.6em; animation:floatUp 1.2s ease-out;">🏢 الشركات الرقمية الرسمية</h2>
+  <p style="max-width:750px; margin:auto; font-size:1.1em; color:#558b2f; animation:floatUp 1.6s ease-out;">
+    تضم الدولة الرقمية شركات افتراضية تعمل في مجالات البرمجة، التصميم، التعليم،  
+    التجارة الإلكترونية، والتقنية الناشئة.  
+    جميعها تعمل تحت رخصة الدولة وتحظى بالحماية الرقمية الكاملة.
+  </p>
+
+  <div style="margin-top:50px; display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:30px;">
+    <div class="company-box">
+      <h3>💻 شركة البرمجة</h3>
+      <p>متخصصة في تطوير الأنظمة والواجهات الرقمية داخل الدولة.</p>
+    </div>
+    <div class="company-box">
+      <h3>📦 شركة التجارة</h3>
+      <p>تُدير عمليات البيع الرقمي والتوزيع للمواطنين والزوار.</p>
+    </div>
+    <div class="company-box">
+      <h3>🎓 شركة التعليم الرقمي</h3>
+      <p>تقدّم كورسات وشهادات افتراضية عبر أكاديمية الدولة.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .company-box {
+    background: #dcedc8;
+    color: #33691e;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(139,195,74,0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: floatUp 2s ease-out;
+  }
+
+  .company-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(139,195,74,0.25);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style> <section id="visitor-monitoring" style="background:#fce4ec; color:#880e4f; padding:80px 20px; text-align:center; animation:fadeIn 1.5s ease-in-out;">
+  <h2 style="font-size:2.6em; animation:floatUp 1.2s ease-out;">🛰️ مركز مراقبة الزوار</h2>
+  <p style="max-width:750px; margin:auto; font-size:1.1em; color:#ad1457; animation:floatUp 1.6s ease-out;">
+    يراقب هذا المركز عدد الزوار، أماكن تواجدهم، مدة بقائهم،  
+    وسلوكهم العام داخل الأقسام المختلفة للموقع.  
+    الهدف هو تحسين التجربة وضمان الأمن الرقمي.
+  </p>
+
+  <div style="margin-top:50px;">
+    <div style="background:#fff; padding:25px; border-radius:15px; max-width:600px; margin:auto; box-shadow:0 10px 25px rgba(0,0,0,0.1); animation:floatUp 2s ease-out;">
+      <h3>📊 عدد الزوار الحالي:</h3>
+      <p style="font-size:2em; color:#d81b60;" id="visitor-count">--</p>
+      <button onclick="updateVisitorCount()" style="padding:10px 20px; background:#d81b60; color:white; border:none; border-radius:10px;">🔄 تحديث</button>
+    </div>
+  </div>
+</section>
+
+<script>
+  function updateVisitorCount() {
+    const count = Math.floor(Math.random() * 200 + 1);
+    document.getElementById("visitor-count").textContent = count + " زائر الآن";
+  }
+  // تحديث تلقائي كل 5 ثواني
+  setInterval(updateVisitorCount, 5000);
+</script>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style> <section id="smart-comments" style="background:#e8f5e9; color:#1b5e20; padding:80px 20px; text-align:center; animation:fadeIn 1.5s ease-in-out;">
+  <h2 style="font-size:2.6em; animation:floatUp 1.2s ease-out;">💬 التعليقات الذكية</h2>
+  <p style="max-width:750px; margin:auto; font-size:1.1em; color:#2e7d32; animation:floatUp 1.6s ease-out;">
+    شارك رأيك، استفسارك، أو رسالتك للمجلس، وسيتم مراجعتها ومعالجتها  
+    بواسطة نظام ذكي يعتمد على الذكاء الاصطناعي لمراقبة السلوك وتحليل المحتوى.
+  </p>
+
+  <form onsubmit="handleComment(event)" style="max-width:700px; margin:auto; background:#c8e6c9; padding:30px; border-radius:15px; box-shadow:0 10px 25px rgba(0,0,0,0.1);">
+    <textarea id="comment" rows="5" placeholder="أدخل تعليقك هنا..." required style="width:100%; padding:15px; border-radius:10px; border:none; font-size:1em;"></textarea>
+    <br><br>
+    <button type="submit" style="padding:10px 25px; background:#388e3c; color:white; border:none; border-radius:10px;">إرسال التعليق</button>
+  </form>
+
+  <div id="comment-status" style="margin-top:20px; font-weight:bold;"></div>
+</section>
+
+<script>
+  function handleComment(e) {
+    e.preventDefault();
+    const comment = document.getElementById("comment").value;
+    document.getElementById("comment-status").textContent = "✅ تم استلام التعليق، سيتم مراجعته.";
+    document.getElementById("comment").value = "";
+  }
+</script>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style> <section id="navigation-system" style="background:#ede7f6; color:#4527a0; padding:80px 20px; text-align:center; animation:fadeIn 1.5s ease-in-out;">
+  <h2 style="font-size:2.5em; animation:floatUp 1.2s ease-out;">🧭 نظام التنقّل الذكي</h2>
+  <p style="max-width:750px; margin:auto; font-size:1.1em; color:#5e35b1; animation:floatUp 1.6s ease-out;">
+    تم تجهيز الموقع بنظام تنقل مرن وسلس، يسمح لك بالوصول لأي قسم  
+    بضغطة زر، أينما كنت داخل الدولة الرقمية.
+  </p>
+
+  <nav style="margin-top:50px;">
+    <button onclick="scrollToSection('high-council')" class="nav-btn">المجلس الأعلى</button>
+    <button onclick="scrollToSection('security-authorities')" class="nav-btn">السلطات الأمنية</button>
+    <button onclick="scrollToSection('research-center')" class="nav-btn">مركز الأبحاث</button>
+    <button onclick="scrollToSection('visitor-monitoring')" class="nav-btn">مراقبة الزوار</button>
+    <button onclick="scrollToSection('digital-companies')" class="nav-btn">الشركات</button>
+  </nav>
+</section>
+
+<script>
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+  }
+</script>
+
+<style>
+  .nav-btn {
+    margin: 10px;
+    padding: 12px 25px;
+    background: #7e57c2;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: 0.3s;
+  }
+
+  .nav-btn:hover {
+    background: #512da8;
+    cursor: pointer;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style> <section id="welcome-screen" style="height:100vh; background:linear-gradient(to right, #1a237e, #0d47a1); color:white; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; animation:fadeIn 2s ease-in-out;">
+  <h1 style="font-size:3em; animation:floatUp 1.4s ease-out;">🌟 أهلاً بك في الدولة الرقمية</h1>
+  <p style="font-size:1.2em; max-width:700px; animation:floatUp 1.6s ease-out;">
+    حيث تندمج الحماية، الفخامة، العلم، والعدالة في عالمٍ واحد  
+    بإدارة <strong>الرئيس الأعلى</strong> وسلطات رقمية لا مثيل لها.
+  </p>
+  <button onclick="scrollToSection('high-council')" style="margin-top:30px; padding:15px 35px; font-size:1em; background:#ffc107; color:#0d47a1; border:none; border-radius:10px; font-weight:bold; transition:0.3s;">🚀 دخول الدولة</button>
+</section> <section id="cyber-security" style="background:#212121; color:#00e676; padding:80px 20px; text-align:center; animation:fadeIn 1.5s ease-in-out;">
+  <h2 style="font-size:2.6em; animation:floatUp 1.2s ease-out;">🛡️ نظام الحماية السيبراني</h2>
+  <p style="max-width:800px; margin:auto; font-size:1.1em; color:#69f0ae; animation:floatUp 1.6s ease-out;">
+    هذا القسم مسؤول عن تأمين الدولة الرقمية من أي اختراق،  
+    تصيّد، تهديد خارجي، أو نشاط مشبوه.  
+    يعمل بشكل تلقائي على مدار الساعة بواسطة ذكاء صناعي فائق.
+  </p>
+
+  <div style="margin-top:50px; display:flex; flex-wrap:wrap; justify-content:center; gap:30px;">
+    <div class="cyber-box">
+      <h3>🧱 الجدار الناري</h3>
+      <p>يصد الهجمات في الوقت الحقيقي ويُحدّث تلقائيًا.</p>
+      <button onclick="alert('🧱 تم تنشيط الجدار الناري')" class="cyber-btn">تشغيل الجدار</button>
+    </div>
+    <div class="cyber-box">
+      <h3>👁️ نظام الرصد الذكي</h3>
+      <p>يراقب تحركات مريبة ويطلق إنذارات فورية.</p>
+      <button onclick="alert('👁️ الرصد نشط الآن')" class="cyber-btn">تنشيط الرصد</button>
+    </div>
+    <div class="cyber-box">
+      <h3>🔐 تشفير شامل</h3>
+      <p>يحمي كل البيانات الشخصية والحكومية بتقنيات عسكرية.</p>
+      <button onclick="alert('🔐 التشفير مفعّل بالكامل')" class="cyber-btn">تفعيل التشفير</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cyber-box {
+    background: #333;
+    color: #00e676;
+    padding: 25px;
+    border-radius: 15px;
+    width: 280px;
+    box-shadow: 0 10px 25px rgba(0,255,128,0.15);
+    animation: floatUp 2s ease-out;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .cyber-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,255,128,0.25);
+  }
+
+  .cyber-btn {
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: #00c853;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: 0.3s;
+  }
+
+  .cyber-btn:hover {
+    background: #00b248;
+    cursor: pointer;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style> <section id="sovereign-control" style="background:#1b1b1b; color:#fff; padding:80px 20px; text-align:center;">
+  <h2 style="font-size:2.8em;">🛡️ مركز السيادة الرقمية</h2>
+  <p style="color:#ccc; font-size:1.1em;">دخول مشفّر للمسؤول الأعلى فقط</p>
+
+  <div id="control-login" style="margin-top:40px;">
+    <input type="password" id="master-pass" placeholder="أدخل كلمة السر" style="padding:12px; font-size:1em; border:none; border-radius:8px; width:250px;" />
+    <button onclick="verifyControlPass()" style="padding:12px 20px; background:#00e676; color:#000; border:none; border-radius:8px; font-weight:bold; margin-left:10px;">🔓 دخول</button>
+  </div>
+
+  <div id="master-panel" style="display:none; margin-top:50px; animation:fadeIn 1s ease-in-out;">
+    <h3>🧠 التحكم الكامل بالدولة</h3>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; margin-top:30px;">
+
+      <button class="ctrl-btn" onclick="alert('✅ تم فتح جميع الأقسام')">🔓 فتح جميع الأقسام</button>
+      <button class="ctrl-btn" onclick="alert('🚫 تم إغلاق جميع الأقسام')">🔐 إغلاق جميع الأقسام</button>
+      <button class="ctrl-btn" onclick="alert('🛠️ دخلنا في وضع الصيانة')">🛠️ تفعيل الصيانة</button>
+      <button class="ctrl-btn" onclick="alert('🎯 تم تشغيل السياحة الرقمية')">🌍 تشغيل السياحة</button>
+      <button class="ctrl-btn" onclick="alert('🚓 الأمن مفعل بكامل القوة')">🛡️ تفعيل الأمن</button>
+      <button class="ctrl-btn" onclick="alert('📤 تم تعيين موظف جديد')">➕ توظيف عضو</button>
+      <button class="ctrl-btn" onclick="alert('❌ تم تفنيش الموظف المحدد')">⚠️ تفنيش موظف</button>
+      <button class="ctrl-btn" onclick="alert('✅ تم إعادة تشغيل الموقع بنجاح')">🔁 إعادة التشغيل</button>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .ctrl-btn {
+    padding: 15px 25px;
+    background: #212121;
+    color: #00e676;
+    border: 2px solid #00e676;
+    border-radius: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .ctrl-btn:hover {
+    background: #00e676;
+    color: #000;
+    cursor: pointer;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+</style>
+
+<script>
+  function verifyControlPass() {
+    const pass = document.getElementById("master-pass").value;
+    if (pass === "admin123") {
+      document.getElementById("control-login").style.display = "none";
+      document.getElementById("master-panel").style.display = "block";
+    } else {
+      alert("❌ كلمة السر خاطئة");
+    }
+  }
+</script>
