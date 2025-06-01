@@ -2,89 +2,124 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>🚧 الموقع تحت الصيانة</title>
+  <title>SaeedTheBuilder – تحت الصيانة</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    /* خلفية متدرجة متحركة */
+    /* رسم خلفية متدرجة متحركة */
     @keyframes gradientBG {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
+    /* رسم حركة خفيفة للروابط */
+    @keyframes floatLink {
+      0%   { transform: translateY(0); }
+      50%  { transform: translateY(-5px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* رسم نص يومض */
+    @keyframes blinkText {
+      0%, 100% { opacity: 1; }
+      50%      { opacity: 0.3; }
+    }
+
     body {
       margin: 0;
       height: 100vh;
+      overflow: hidden;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #ffffff;
-      background: linear-gradient(-45deg, #1c1c1c, #2a2a2a, #1c1c1c, #2a2a2a);
+      justify-content: center;
+      background: linear-gradient(-45deg, #1b1b1b, #2f2f2f, #1b1b1b, #2f2f2f);
       background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+      animation: gradientBG 20s ease infinite;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      text-align: center;
     }
 
-    h1 {
-      font-size: 50px;
-      margin-bottom: 10px;
+    .container {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+      max-width: 600px;
+      width: 90%;
+    }
+
+    .site-name {
+      font-size: 48px;
+      font-weight: bold;
       color: #ffd700;
       text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+      margin-bottom: 10px;
     }
 
-    p {
-      font-size: 18px;
-      line-height: 1.6;
-      max-width: 600px;
-      margin: 8px 0;
+    .maintenance-text {
+      font-size: 24px;
+      margin: 10px 0 20px;
+      line-height: 1.5;
       text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     }
 
     .blink {
       animation: blinkText 1.5s infinite;
-    }
-    @keyframes blinkText {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-
-    .container {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 30px 40px;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-    }
-
-    /* زر صغير للعودة إلى الرئيس الأعلى */
-    .admin-link {
-      margin-top: 20px;
-    }
-    .admin-link a {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #ffd700;
-      color: #1c1c1c;
-      text-decoration: none;
+      color: #ffcc00;
       font-weight: bold;
-      border-radius: 8px;
-      transition: background-color 0.3s;
     }
-    .admin-link a:hover {
-      background-color: #e6c200;
+
+    .social-links {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .social-links a {
+      color: #00adb5;
+      text-decoration: none;
+      font-size: 20px;
+      display: inline-block;
+      padding: 10px;
+      border: 2px solid #00adb5;
+      border-radius: 8px;
+      transition: transform 0.3s, background-color 0.3s, color 0.3s;
+      animation: floatLink 3s ease-in-out infinite;
+    }
+
+    .social-links a:hover {
+      background-color: #00adb5;
+      color: #1b1b1b;
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(0, 173, 181, 0.8);
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #aaa;
+      text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>🚧 الموقع تحت الصيانة الملكية</h1>
-    <p class="blink">بأمر من الرئيس الأعلى سعيد الهاجري 👑</p>
-    <p>نعتذر على الإزعاج، فالموقع يخضع الآن لتحسينات وتحضيرات جديدة ليعود أقوى وأكثر فخامة.</p>
-    <p>شكرًا لثقتكم وصبركم، سنعود قريبًا بميزات أفضل وتجربة أروع.</p>
-    <div class="admin-link">
-      <a href="#">دخول الرئيس الأعلى</a>
+    <div class="site-name">SaeedTheBuilder</div>
+    <div class="maintenance-text blink">🚧 تحت الصيانة – نرجو العودة قريبًا 🚧</div>
+    <p class="maintenance-text">
+      نعتذر عن الإزعاج، نسعى حاليًا لتحسين الموقع وإضافة مزايا جديدة
+      ليعود بأفضل حلة ممكنة. شكرًا لصبركم وثقتكم.
+    </p>
+    <div class="social-links">
+      <a href="https://instagram.com/sgalhajri" target="_blank">📸 انستغرام</a>
+      <a href="https://snapchat.com/add/blllllllbl" target="_blank">👻 سناب شات</a>
+      <!-- يمكنك إضافة روابط أخرى هنا -->
     </div>
+    <footer>
+      © 2025 جميع الحقوق محفوظة لـ SaeedTheBuilder
+    </footer>
   </div>
 </body>
 </html>
