@@ -1,179 +1,232 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <title>SaeedTheBuilder | V13</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <title>🌐 عالم سعيد الرقمي الكامل | V17</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <audio id="welcomeAudio" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_5cd3d9ad40.mp3" preload="auto"></audio>
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:sans-serif;background:#000;color:#fff;transition:0.5s}
-    header, footer {padding:20px;text-align:center;background:#111;font-size:1.5em;}
-    section{padding:30px;border-bottom:1px solid #333}
-    .ticker{background:#222;padding:10px;overflow:hidden;white-space:nowrap}
-    .ticker span{display:inline-block;padding-left:100%;animation:ticker 25s linear infinite}
-    @keyframes ticker{to{transform:translateX(-100%)}}
-    .btn{padding:10px 20px;margin:10px;background:#f00;border:none;color:#fff;cursor:pointer}
-    #panel{display:none;background:#222;padding:20px}
-    .comment-box{background:#333;margin:10px;padding:10px;border-left:4px solid lime}
-    input, textarea{width:100%;padding:10px;margin:5px 0;background:#111;color:#fff;border:1px solid #444}
-    .chat-box{background:#111;padding:10px;border-radius:10px}
-    .chat-msg{margin:5px 0}
-    #game {height: 100px;background: linear-gradient(90deg, #0ff, #f0f);animation: move 5s linear infinite;}
-    @keyframes move {0%{background-position:0 0}100%{background-position:100% 0}}
-    .night {background:#fff;color:#000}
-    .map, .achievements, .gallery, .office {margin-top: 30px}
-    a{color:#0ff}
+    body {
+      background-image: radial-gradient(circle at center, #111 0%, #000 70%);
+      color: gold;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+      animation: moveBg 15s linear infinite;
+    }
+    @keyframes moveBg {
+      0% { background-position: 0 0; }
+      100% { background-position: 100% 100%; }
+    }
+    section { padding: 40px; border-bottom: 1px solid #222; text-align: center; }
+    h1, h2, h3 { text-shadow: 0 0 15px gold; }
+    input, button {
+      padding: 10px; font-size: 1rem; margin: 10px; border-radius: 10px; border: none;
+    }
+    input {
+      background: #111; color: gold; width: 250px; text-align: center;
+    }
+    button {
+      background: gold; color: black; font-weight: bold; cursor: pointer;
+    }
+    .hidden { display: none; }
+    .panel, .box {
+      background: #111; padding: 20px; margin: 20px auto;
+      width: 80%; border-radius: 12px; box-shadow: 0 0 10px gold;
+    }
+    .gallery img {
+      max-width: 200px; border: 3px solid gold; border-radius: 10px; margin: 10px;
+    }
+    .chatlog { height: 200px; overflow-y: auto; background: #000; border: 1px solid gold; padding: 10px; margin-bottom: 10px; }
+    .chatlog div { margin: 5px 0; }
+    .chatlog .user { color: lightblue; }
+    .chatlog .bot { color: lightgreen; }
+    canvas { background: #222; border: 2px solid gold; display: block; margin: 0 auto; }
+    footer { padding: 30px; background: #111; color: white; font-size: 0.9rem; }
+    a { color: gold; text-decoration: none; }
+    .map { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px; }
+    .map a {
+      background: gold; color: black; padding: 10px 20px; border-radius: 10px;
+      font-weight: bold; box-shadow: 0 0 10px gold; text-decoration: none;
+    }
   </style>
 </head>
-<body>
-
-<header>🌟 أهلاً بك في SaeedTheBuilder | الإصدار V13 الأسطوري</header>
-
-<!-- شريط الأخبار -->
-<div class="ticker"><span id="news">🔄 جاري تحميل الأخبار...</span></div>
-
-<!-- دخول سري -->
+<body onload="playWelcome()"> <!-- شاشة الدخول -->
 <section id="login">
-  <h2>🔐 الدخول السري</h2>
-  <input type="password" id="pass" placeholder="أدخل كلمة السر">
-  <button class="btn" onclick="checkLogin()">دخول</button>
+  <h1>🔐 أدخل كلمة المرور للدخول إلى عالم سعيد الرقمي</h1>
+  <input type="password" id="password" placeholder="كلمة السر">
+  <button onclick="login()">دخول</button>
+  <div id="error" style="color:red; display:none;">🚫 كلمة المرور خاطئة!</div>
 </section>
 
-<!-- لوحة التحكم -->
-<div id="panel">
-  <h3>⚙️ لوحة تحكم الموقع</h3>
-  <button class="btn" onclick="toggleNight()">🌙 تبديل الوضع الليلي/النهاري</button>
-  <button class="btn" onclick="toggleSection('chat')">💬 إظهار/إخفاء الدردشة</button>
-  <button class="btn" onclick="toggleSection('gallery')">🖼️ إظهار/إخفاء المعرض</button>
-</div>
-
-<!-- تعريف -->
+<!-- الخريطة -->
 <section>
-  <h2>👑 سعيد بن غصاب الهاجري</h2>
-  <p>الرئيس الأعلى لمجلس النخبة، مطور SaeedTheBuilder، بطل رفع الأثقال، وواجهة فخر رقمية لدولة الإمارات.</p>
-</section>
-
-<!-- الدردشة الوهمية -->
-<section id="chat">
-  <h2>💬 دردشة الزوار</h2>
-  <div class="chat-box">
-    <div class="chat-msg">👤 زائر: ما شاء الله موقع قوي🔥</div>
-    <div class="chat-msg">🤖 بوت: أهلاً بك في موقع فخامة الرئيس!</div>
+  <h2>🗺️ خريطة التنقّل</h2>
+  <div class="map">
+    <a href="#mainContent">الرئيسية</a>
+    <a href="#royalOffice">مكتب الرئيس</a>
+    <a href="#newsSection">الأخبار</a>
+    <a href="#gameCanvas">اللعبة</a>
+    <a href="#chatInput">الشات</a>
+    <a href="#password">تسجيل الخروج</a>
   </div>
 </section>
 
-<!-- اللعبة الخلفية -->
-<div id="game" title="لعبة الخلفية 🎮"></div>
+<!-- المحتوى الكامل -->
+<div id="mainContent" class="hidden">
 
-<!-- المعرض -->
-<section id="gallery">
-  <h2>📸 المعرض</h2>
-  <img src="https://via.placeholder.com/200x200?text=Saeed+1" alt="Saeed" />
-  <img src="https://via.placeholder.com/200x200?text=Saeed+2" alt="Saeed" />
-</section>
-
-<!-- الإنجازات -->
-<section class="achievements">
-  <h2>🏆 إنجازاتي</h2>
-  <ul>
-    <li>بطولة العرب - قطر 2025 - رفع 70 كجم</li>
-    <li>تمثيل الإمارات في فئة 81 كجم</li>
-    <li>المؤسس والمبرمج الأعلى لموقع SaeedTheBuilder</li>
-  </ul>
-</section>
-
-<!-- التحفيز -->
 <section>
-  <h2>📢 رسالة تحفيزية</h2>
-  <p>كل من جلس، بقي مكانه. فقط الواقف يمشي نحو القمة. – سعيد الهاجري</p>
-  <button class="btn" onclick="playVoice()">🎧 استمع الآن</button>
+  <h2>🏙️ المدينة الرقمية</h2>
+  <div class="box">
+    <p>مرحبًا بك في عالم سعيد الرقمي. هذه المدينة الذكية هي بوابة لكل الأقسام التفاعلية 👑</p>
+  </div>
 </section>
 
-<!-- مكتب الأوامر -->
-<section class="office">
-  <h2>💼 مكتب الرئيس الأعلى</h2>
-  <textarea placeholder="أمر مباشر من الرئيس الأعلى..."></textarea>
-  <button class="btn" onclick="alert('الأمر تم تنفيذه يا فندم!')">تنفيذ الأمر</button>
-</section>
-
-<!-- نموذج التواصل -->
 <section>
-  <h2>📨 تواصل معنا</h2>
-  <form onsubmit="alert('تم الإرسال');return false;">
-    <input type="text" placeholder="اسمك" required />
-    <input type="email" placeholder="بريدك" required />
-    <textarea placeholder="رسالتك"></textarea>
-    <button type="submit">إرسال</button>
-  </form>
+  <h2>🏰 القصر الملكي</h2>
+  <div class="box">
+    <p>هنا مقر القيادة العليا للرئيس الأعلى سعيد الهاجري. كل أوامر العالم تصدر من هنا 💼</p>
+  </div>
+</section> <section>
+  <h2>🎮 اللعبة التفاعلية</h2>
+  <canvas id="gameCanvas" width="300" height="200"></canvas>
 </section>
 
-<!-- خريطة المحتوى -->
-<section class="map">
-  <h2>🧭 خريطة الموقع</h2>
-  <ul>
-    <li>الرئيسية</li>
-    <li>الدردشة</li>
-    <li>المعرض</li>
-    <li>الإنجازات</li>
-    <li>التواصل</li>
-    <li>التحكم</li>
-  </ul>
-</section>
-
-<!-- التعليقات -->
 <section>
-  <h2>🗯️ تعليقات</h2>
-  <div class="comment-box">🔥 فخم! هذا الموقع قدوة لكل المبرمجين</div>
-  <div class="comment-box">💬 الموقع متكامل وأسهل من أي شيء!</div>
+  <h2>📸 المعرض الرقمي</h2>
+  <div class="gallery">
+    <img src="https://i.imgur.com/9l4Z1iG.jpg" alt="Saeed 1">
+    <img src="https://i.imgur.com/AVfF9gX.jpg" alt="Saeed 2">
+  </div>
 </section>
 
-<!-- روابط الحسابات -->
 <section>
-  <h2>🔗 حساباتي</h2>
-  <ul>
-    <li><a href="https://instagram.com/sgalhajri" target="_blank">إنستغرام</a></li>
-    <li><a href="https://snapchat.com/add/blllllllbl" target="_blank">سناب شات</a></li>
-  </ul>
+  <h2>🏆 تحديات وأوسمة</h2>
+  <div class="panel">
+    <h3>💻 تحدي البرمجة</h3>
+    <p>ما نتيجة 2 + 2 × 2؟</p>
+    <button onclick="solve(this,'6')">4</button>
+    <button onclick="solve(this,'4')">6</button>
+    <div class="badge">🥇 وسام البرمجة</div>
+  </div>
+  <div class="panel">
+    <h3>🏋️‍♂️ تحدي الأثقال</h3>
+    <p>ما اسم الرفعة من الأرض إلى فوق الرأس؟</p>
+    <button onclick="solve(this,'نطر')">خطف</button>
+    <button onclick="solve(this,'خطف')">نطر</button>
+    <div class="badge">🥇 وسام رفع الأثقال</div>
+  </div>
 </section>
 
-<footer>جميع الحقوق محفوظة لـ SaeedTheBuilder V13 - يتم التحديث يوميًا تلقائيًا</footer>
+<section>
+  <h2>🤖 الشات الذكي</h2>
+  <div class="panel">
+    <div class="chatlog" id="chatlog">
+      <div class="bot">مرحبًا بك في شات عالم سعيد الرقمي!</div>
+    </div>
+    <input type="text" id="chatInput" placeholder="اكتب سؤالك...">
+    <button onclick="sendMsg()">إرسال</button>
+  </div>
+</section> <section>
+  <h2>🛡️ الأمن السيبراني</h2>
+  <div class="panel">
+    <p>هذا الموقع محمي بأنظمة سيبرانية متقدمة بقيادة الرئيس الأعلى للأمن الرقمي.</p>
+    <p>🚨 أي محاولة لاختراق هذا النظام سيتم تتبعها واتخاذ إجراءات قانونية صارمة.</p>
+  </div>
+</section>
+
+<section>
+  <h2>⚙️ لوحة التحكم الإدارية</h2>
+  <div class="panel">
+    <button onclick="toggleSection('royalOffice')">👑 إظهار/إخفاء مكتب الرئيس</button>
+    <button onclick="toggleSection('newsSection')">📰 إظهار/إخفاء الأخبار</button>
+  </div>
+</section>
+
+<section id="royalOffice" class="hidden">
+  <h2>👑 مكتب الرئيس الأعلى</h2>
+  <div class="box">
+    <p>مكتب القيادة العليا والمركز السيادي لإدارة عالم سعيد الرقمي.</p>
+  </div>
+</section>
+
+<section id="newsSection" class="hidden">
+  <h2>📰 قسم الأخبار العالمية</h2>
+  <div class="box">
+    <p>ستظهر هنا الأخبار اليومية من علوم الدار و beIN و العين الإخبارية.</p>
+  </div>
+</section>
+
+<footer>
+  <p>تابعني على:
+    <a href="https://instagram.com/sgalhajri" target="_blank">إنستغرام</a> |
+    <a href="#">سناب: blllllllbl</a>
+  </p>
+</footer>
 
 <script>
-  // عداد الأخبار
-  document.getElementById("news").textContent =
-    "🔴 علوم الدار: حملة وطنية جديدة | ⚽ beIN SPORTS: ملخص مباراة الأمس | 📰 العين: تطورات عاجلة | 🎥 أبوظبي الرياضية: تغطية خاصة للبطولات";
-
-  // دخول سري
-  function checkLogin() {
-    let p = document.getElementById("pass").value;
-    if (p === "saeed") {
-      alert("تم الدخول بنجاح");
-      document.getElementById("panel").style.display = "block";
-    } else {
-      alert("كلمة السر غير صحيحة");
-    }
+function login() {
+  const pass = document.getElementById("password").value;
+  if (pass === "SaeedKing999") {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("mainContent").classList.remove("hidden");
+  } else {
+    document.getElementById("error").style.display = "block";
   }
+}
 
-  // تبديل الوضع
-  function toggleNight() {
-    document.body.classList.toggle("night");
+function solve(btn, correct) {
+  const badge = btn.parentElement.querySelector(".badge");
+  if (btn.textContent === correct) {
+    badge.style.display = "block";
+    btn.style.background = "green";
+  } else {
+    btn.style.background = "red";
   }
+}
 
-  // إظهار/إخفاء أقسام
-  function toggleSection(id) {
-    let el = document.getElementById(id);
-    if (el.style.display === "none") {
-      el.style.display = "block";
-    } else {
-      el.style.display = "none";
-    }
-  }
+function sendMsg() {
+  const input = document.getElementById("chatInput");
+  const log = document.getElementById("chatlog");
+  const text = input.value;
+  if (!text.trim()) return;
+  log.innerHTML += `<div class='user'>👤 ${text}</div>`;
+  setTimeout(() => {
+    let reply = "🤖 تحت أمرك!";
+    if (text.includes("بطولة")) reply = "🏆 بطولاتك محفوظة.";
+    if (text.includes("رفع")) reply = "💪 أقوى لاعب في الإمارات!";
+    log.innerHTML += `<div class='bot'>${reply}</div>`;
+    log.scrollTop = log.scrollHeight;
+  }, 800);
+  input.value = "";
+}
 
-  // صوت تحفيزي
-  function playVoice() {
-    let audio = new Audio("https://actions.google.com/sounds/v1/alarms/beep_short.ogg");
-    audio.play();
-  }
+function toggleSection(id) {
+  const sec = document.getElementById(id);
+  sec.classList.toggle("hidden");
+}
+
+let y = 0, speed = 2;
+function drawBall() {
+  const c = document.getElementById("gameCanvas");
+  const ctx = c.getContext("2d");
+  ctx.clearRect(0, 0, 300, 200);
+  ctx.beginPath();
+  ctx.arc(150, y, 10, 0, Math.PI * 2);
+  ctx.fillStyle = "gold";
+  ctx.fill();
+  ctx.closePath();
+  y += speed;
+  if (y > 200) y = 0;
+  requestAnimationFrame(drawBall);
+}
+drawBall();
+
+function playWelcome() {
+  const audio = document.getElementById("welcomeAudio");
+  if (audio) audio.play();
+}
 </script>
 
 </body>
