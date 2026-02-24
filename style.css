@@ -1,66 +1,33 @@
-
-body {
-    font-family: 'Cairo', sans-serif;
-    margin: 0;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: #fff;
-    overflow-x: hidden;
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 80vh; /* يغطي غالبية الشاشة */
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('hero-bg.jpg') center/cover no-repeat;
+  color: white;
 }
 
-.navbar {
-    background: #111;
-    padding: 20px;
-    text-align: center;
-    animation: slideDown 1s ease-out;
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
 }
 
-.logo {
-    font-size: 2em;
-    animation: pulse 2s infinite;
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
 }
 
-.subtitle {
-    color: #aaa;
+.hero .btn {
+  background-color: #ff9800;
+  color: white;
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s ease;
 }
 
-.section {
-    padding: 40px;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 1s ease forwards;
-    animation-delay: 0.3s;
-}
-
-ul li {
-    margin: 10px 0;
-}
-
-a {
-    color: #1e90ff;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-a:hover {
-    color: #fff;
-}
-
-.footer {
-    text-align: center;
-    padding: 20px;
-    background: #111;
-}
-
-@keyframes slideDown {
-    from { transform: translateY(-100%); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes fadeInUp {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+.hero .btn:hover {
+  background-color: #e68900;
 }
