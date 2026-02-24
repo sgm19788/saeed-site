@@ -17,4 +17,4 @@ let letter = '';
   } else {
     setTimeout(type, 150);
   }
-}());
+}())
