@@ -7,44 +7,51 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="logo">Safrly</div>
-    <nav>
-      <ul>
-        <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="results.html">الحجوزات</a></li>
-        <li><a href="discounts.html">الخصومات</a></li>
-        <li><a href="about.html">من نحن</a></li>
-        <li><a href="contact.html">تواصل معنا</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main>
-    <section class="hero">
-      <h1>مرحبا بك في Safrly</h1>
-      <p>أفضل منصة لحجوزاتك وعروضك المميزة</p>
-      <a href="results.html" class="btn">ابحث عن عروض</a>
-    </section>
+<header>
+  <div class="logo">Safrly</div>
+  <nav>
+    <ul>
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="results.html">الحجوزات</a></li>
+      <li><a href="discounts.html">الخصومات</a></li>
+      <li><a href="about.html">من نحن</a></li>
+      <li><a href="contact.html">تواصل معنا</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <section class="features">
-      <div class="feature">
-        <h2>سهل الاستخدام</h2>
-        <p>كل حجوزاتك في مكان واحد.</p>
-      </div>
-      <div class="feature">
-        <h2>خصومات حصرية</h2>
-        <p>استفد من كوبونات وعروض خاصة.</p>
-      </div>
-      <div class="feature">
-        <h2>موثوق وآمن</h2>
-        <p>نضمن لك أفضل تجربة حجز.</p>
-      </div>
-    </section>
-  </main>
+<!-- Hero Section -->
+<div id="hero-placeholder"></div>
 
-  <footer>
-    <p>&copy; 2026 Safrly - تحت Arqon Group</p>
-  </footer>
+<main>
+  <section class="features">
+    <div class="feature">
+      <h2>سهل الاستخدام</h2>
+      <p>كل حجوزاتك في مكان واحد.</p>
+    </div>
+    <div class="feature">
+      <h2>خصومات حصرية</h2>
+      <p>استفد من كوبونات وعروض خاصة.</p>
+    </div>
+    <div class="feature">
+      <h2>موثوق وآمن</h2>
+      <p>نضمن لك أفضل تجربة حجز.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 Safrly - تحت Arqon Group</p>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  fetch('herosection.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('hero-placeholder').innerHTML = data;
+    });
+</script>
 </body>
 </html>
