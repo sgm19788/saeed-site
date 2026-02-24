@@ -21,8 +21,14 @@
   </nav>
 </header>
 
-<!-- Hero Section -->
-<div id="hero-placeholder"></div>
+<!-- Hero Section مدمج مباشرة -->
+<section class="hero">
+  <div class="hero-content">
+    <h1 id="hero-title"></h1>
+    <p>أفضل منصة لحجوزاتك وعروضك المميزة</p>
+    <a href="results.html" class="btn">ابحث عن عروض</a>
+  </div>
+</section>
 
 <main>
   <section class="features">
@@ -46,12 +52,5 @@
 </footer>
 
 <script src="script.js"></script>
-<script>
-  fetch('herosection.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('hero-placeholder').innerHTML = data;
-    });
-</script>
 </body>
 </html>
