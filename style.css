@@ -1,10 +1,46 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+header {
+  background-color: #1a73e8;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
 .hero {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: 80vh; /* يغطي غالبية الشاشة */
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('hero-bg.jpg') center/cover no-repeat;
+  height: 80vh;
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/hero-bg.jpg') center/cover no-repeat;
   color: white;
 }
 
@@ -30,4 +66,21 @@
 
 .hero .btn:hover {
   background-color: #e68900;
+}
+
+.features {
+  display: flex;
+  justify-content: space-around;
+  padding: 50px 20px;
+}
+
+.feature h2 {
+  color: #1a73e8;
+}
+
+footer {
+  background-color: #1a73e8;
+  color: white;
+  text-align: center;
+  padding: 20px;
 }
